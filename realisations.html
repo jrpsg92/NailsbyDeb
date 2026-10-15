@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisations — Nails by Deb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-main: #FAF8F5; --bg-card: #FFFFFF; --accent-dark: #1C1B1A; --accent-nude: #D8C4B6; --accent-gold: #C5A880; --text-main: #2C2A29; --text-muted: #7A7571; --border: #E8E2DC; --radius: 16px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(250, 248, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 10px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
+        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
+        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+
+        nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        nav ul { display: flex; list-style: none; gap: 10px; justify-content: center; align-items: center; white-space: nowrap; padding-bottom: 4px; }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 10px; border-radius: 20px; }
+        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.1); }
+        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 6px 14px !important; }
+
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 14px 5%; }
+            .brand-logo img { width: 48px; height: 48px; }
+            .brand-logo span { font-size: 1.8rem; }
+            nav { width: auto; overflow: visible; }
+            nav ul { gap: 18px; padding-bottom: 0; }
+            nav a { font-size: 0.85rem; padding: 8px 12px; }
+        }
+
+        section { padding: 130px 4% 50px; max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 35px; }
+        .section-header p { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        @media (min-width: 600px) { .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; } }
+
+        .gallery-item { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; background-color: var(--border); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%); color: #FFF; }
+        .gallery-overlay span { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-nude); display: block; }
+
+        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 45px 5% 25px; text-align: center; margin-top: 40px; }
+        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 8px; }
+        footer p { color: var(--accent-nude); font-size: 0.85rem; margin-bottom: 20px; }
+        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid var(--accent-gold); padding: 10px 20px; border-radius: 30px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="brand-logo">
+            <img src="logo.png" alt="Nails by Deb Logo">
+            <span>Nails by Deb</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="realisations.html" class="active">Réalisations</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="rules.html">Consignes</a></li>
+                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="section-header">
+            <p>Portfolio</p>
+            <h1>Mes Réalisations</h1>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Pose Américaine Gel-X">
+                <div class="gallery-overlay"><span>Pose Américaine</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Gainage Rubber Base">
+                <div class="gallery-overlay"><span>Gainage Rubber</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80" alt="Nail Art Moderne">
+                <div class="gallery-overlay"><span>Nail Art / French</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Semi-Permanent Mains">
+                <div class="gallery-overlay"><span>Semi-Permanent</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80" alt="Remplissage Gel">
+                <div class="gallery-overlay"><span>Remplissage</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=600&q=80" alt="Manucure Soignée">
+                <div class="gallery-overlay"><span>Soin Cuticules</span></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Nails by Deb</h3>
+        <p>Deborah — Home Studio Ongulaire dans le Val-d'Oise (95)</p>
+        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
+    </footer>
+</body>
+</html>
