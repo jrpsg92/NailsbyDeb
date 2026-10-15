@@ -6,55 +6,94 @@
     <title>À propos — Nails by Deb</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-main: #FAF8F5; --bg-card: #FFFFFF; --accent-dark: #1C1B1A; --accent-nude: #D8C4B6; --accent-gold: #C5A880; --text-main: #2C2A29; --text-muted: #7A7571; --border: #E8E2DC; --radius: 16px; --transition: all 0.3s ease; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-
-        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(250, 248, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 10px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
-        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
-
-        nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        nav ul { display: flex; list-style: none; gap: 10px; justify-content: center; align-items: center; white-space: nowrap; padding-bottom: 4px; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 10px; border-radius: 20px; }
-        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.1); }
-        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 6px 14px !important; }
-
-        @media (min-width: 768px) {
-            header { flex-direction: row; justify-content: space-between; padding: 14px 5%; }
-            .brand-logo img { width: 48px; height: 48px; }
-            .brand-logo span { font-size: 1.8rem; }
-            nav { width: auto; overflow: visible; }
-            nav ul { gap: 18px; padding-bottom: 0; }
-            nav a { font-size: 0.85rem; padding: 8px 12px; }
+        :root {
+            --bg-main: #F7F5F2;
+            --bg-card: #FFFFFF;
+            --accent-dark: #141312;
+            --accent-gold: #C5A880;
+            --text-main: #2C2A29;
+            --text-muted: #8C857E;
+            --border: #E6E0D8;
+            --radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        section { padding: 130px 5% 50px; max-width: 1100px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 35px; }
-        .section-header p { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; }
 
-        .about-layout { display: grid; grid-template-columns: 1fr; gap: 25px; align-items: center; }
-        @media (min-width: 800px) { .about-layout { grid-template-columns: 1fr 1.2fr; gap: 40px; } }
+        /* HEADER LUXE FIXE */
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background: rgba(247, 245, 242, 0.95); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); 
+            z-index: 1000; 
+            padding: 12px 5%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 8px; 
+        }
 
-        .about-img-box { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 25px rgba(0,0,0,0.05); aspect-ratio: 4/5; max-width: 450px; margin: 0 auto; width: 100%; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--accent-dark); }
+        .brand-logo img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
+        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; }
+
+        nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        nav::-webkit-scrollbar { display: none; }
+        nav ul { display: flex; list-style: none; gap: 6px; justify-content: center; align-items: center; white-space: nowrap; padding: 4px 0; }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.2px; padding: 6px 12px; border-radius: 20px; transition: var(--transition); }
+        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
+        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 6px 16px !important; letter-spacing: 1.5px !important; }
+
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 16px 6%; }
+            .brand-logo img { width: 48px; height: 48px; }
+            .brand-logo span { font-size: 1.7rem; }
+            nav { width: auto; overflow: visible; }
+            nav ul { gap: 16px; }
+            nav a { font-size: 0.8rem; padding: 8px 14px; }
+        }
+
+        /* SECTION CORrigée (ESPACEMENT HAUT SÉCURISÉ) */
+        section { 
+            padding: 170px 6% 80px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header p { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; font-weight: 500; }
+        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.3rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; }
+
+        .about-layout { display: grid; grid-template-columns: 1fr; gap: 35px; align-items: center; }
+        @media (min-width: 850px) { .about-layout { grid-template-columns: 1fr 1.2fr; gap: 50px; } }
+
+        .about-img-box { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.04); aspect-ratio: 4/5; max-width: 420px; margin: 0 auto; width: 100%; background: #FFF; }
         .about-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .about-card { background: var(--bg-card); border: 1px solid var(--border); padding: 25px; border-radius: var(--radius); }
-        @media (min-width: 600px) { .about-card { padding: 35px; } }
-        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-dark); line-height: 1.2; }
-        .about-card p { color: var(--text-muted); margin-bottom: 15px; font-size: 0.92rem; }
-        .about-highlights { list-style: none; margin-top: 15px; }
-        .about-highlights li { position: relative; padding-left: 22px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 500; }
-        .about-highlights li::before { content: "✦"; position: absolute; left: 0; color: var(--accent-gold); }
+        .about-card { background: var(--bg-card); border: 1px solid var(--border); padding: 30px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+        @media (min-width: 600px) { .about-card { padding: 40px; } }
+        
+        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--accent-dark); line-height: 1.25; font-weight: 500; }
+        .about-card p { color: var(--text-muted); margin-bottom: 18px; font-size: 0.9rem; font-weight: 300; }
+        
+        .about-highlights { list-style: none; margin-top: 25px; border-top: 1px solid var(--border); padding-top: 20px; }
+        .about-highlights li { position: relative; padding-left: 24px; margin-bottom: 14px; font-size: 0.88rem; font-weight: 400; color: var(--text-main); }
+        .about-highlights li::before { content: "✦"; position: absolute; left: 0; color: var(--accent-gold); font-size: 0.8rem; top: 1px; }
 
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 45px 5% 25px; text-align: center; margin-top: 40px; }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 8px; }
-        footer p { color: var(--accent-nude); font-size: 0.85rem; margin-bottom: 20px; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid var(--accent-gold); padding: 10px 20px; border-radius: 30px; font-size: 0.8rem; }
+        /* FOOTER */
+        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 50px 6% 30px; text-align: center; margin-top: 60px; border-top: 1px solid var(--border); }
+        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 8px; letter-spacing: 1px; font-weight: 400; }
+        footer p { color: #A8A29E; font-size: 0.8rem; margin-bottom: 25px; font-weight: 300; letter-spacing: 0.5px; }
+        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 10px 24px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); }
+        .social-link:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: #141312; }
     </style>
 </head>
 <body>
@@ -85,14 +124,14 @@
                 <img src="deborah.jpg" alt="Deborah — Prothésiste Ongulaire">
             </div>
             <div class="about-card">
-                <h3>Une Nails artiste & un diplôme certifié</h3>
-                <p>À 23 ans, j'ai concrétisé ma passion pour l'esthétique de l'ongle en obtenant mon diplôme de prothésiste ongulaire. Je vous accueille dans mon Home Studio pensé comme un cocon privé dans le 95.</p>
-                <p>Mon engagement : utiliser des produits de qualité supérieure et adapter chaque technique à la nature de vos ongles pour une tenue irréprochable.</p>
+                <h3>Une Nail Artist diplômée & passionnée</h3>
+                <p>À 23 ans, j'ai fait de ma passion un métier d'art et d'exigence en obtenant mon diplôme de prothésiste ongulaire. Je vous reçois dans mon salon privé dans le Val-d'Oise, conçu comme un écrin intime et raffiné.</p>
+                <p>Mon engagement : sublimer vos mains tout en préservant la santé naturelle de vos ongles grâce à des protocoles rigoureux et des produits d'une qualité irréprochable.</p>
                 <ul class="about-highlights">
                     <li>Diplômée & Certifiée en prothésie ongulaire</li>
-                    <li>Accompagnement personnalisé & conseils d'entretien</li>
-                    <li>Hygiène stricte & matériel désinfecté à chaque cliente</li>
-                    <li>Créations tendances, du naturel au Nail Art travaillé</li>
+                    <li>Conseils sur-mesure & diagnostic personnalisé</li>
+                    <li>Hygiène stricte & stérilisation rigoureuse</li>
+                    <li>Créations signatures et finitions haute couture</li>
                 </ul>
             </div>
         </div>
@@ -100,7 +139,7 @@
 
     <footer>
         <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Ongulaire dans le Val-d'Oise (95)</p>
+        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
         <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
     </footer>
 </body>
