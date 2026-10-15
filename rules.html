@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consignes du Studio — Nails by Deb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-main: #FAF8F5; --bg-card: #FFFFFF; --accent-dark: #1C1B1A; --accent-nude: #D8C4B6; --accent-gold: #C5A880; --text-main: #2C2A29; --text-muted: #7A7571; --border: #E8E2DC; --radius: 16px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(250, 248, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 10px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
+        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
+        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+
+        nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        nav ul { display: flex; list-style: none; gap: 10px; justify-content: center; align-items: center; white-space: nowrap; padding-bottom: 4px; }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 10px; border-radius: 20px; }
+        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.1); }
+        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 6px 14px !important; }
+
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 14px 5%; }
+            .brand-logo img { width: 48px; height: 48px; }
+            .brand-logo span { font-size: 1.8rem; }
+            nav { width: auto; overflow: visible; }
+            nav ul { gap: 18px; padding-bottom: 0; }
+            nav a { font-size: 0.85rem; padding: 8px 12px; }
+        }
+
+        section { padding: 130px 5% 50px; max-width: 1000px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 35px; }
+        .section-header p { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); }
+
+        .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+        .rule-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; text-align: center; }
+        .rule-icon { font-size: 1.8rem; margin-bottom: 10px; color: var(--accent-gold); }
+        .rule-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 6px; color: var(--accent-dark); }
+        .rule-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 45px 5% 25px; text-align: center; margin-top: 40px; }
+        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 8px; }
+        footer p { color: var(--accent-nude); font-size: 0.85rem; margin-bottom: 20px; }
+        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid var(--accent-gold); padding: 10px 20px; border-radius: 30px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="brand-logo">
+            <img src="logo.png" alt="Nails by Deb Logo">
+            <span>Nails by Deb</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="realisations.html">Réalisations</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="rules.html" class="active">Consignes</a></li>
+                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="section-header">
+            <p>Informations Pratiques</p>
+            <h1>Consignes du Studio</h1>
+        </div>
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-icon">📍</div>
+                <h4>Adresse Privée</h4>
+                <p>L'adresse dans le 95 est transmise dès que votre réservation est validée.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">👤</div>
+                <h4>Accompagnateurs</h4>
+                <p>Merci de venir seule à votre rendez-vous pour assurer le calme du Home Studio.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">⏱️</div>
+                <h4>Ponctualité</h4>
+                <p>Tolérance de 10 minutes. Au-delà, le rendez-vous sera annulé.</p>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">💅</div>
+                <h4>Mains Nues</h4>
+                <p>Merci d'arriver les mains nues ou d'ajouter l'option dépose.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Nails by Deb</h3>
+        <p>Deborah — Home Studio Ongulaire dans le Val-d'Oise (95)</p>
+        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
+    </footer>
+</body>
+</html>
