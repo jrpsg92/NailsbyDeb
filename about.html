@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos — Nails by Deb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-main: #FAF8F5; --bg-card: #FFFFFF; --accent-dark: #1C1B1A; --accent-nude: #D8C4B6; --accent-gold: #C5A880; --text-main: #2C2A29; --text-muted: #7A7571; --border: #E8E2DC; --radius: 16px; --transition: all 0.3s ease; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
+
+        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(250, 248, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 10px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
+        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
+        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
+
+        nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        nav ul { display: flex; list-style: none; gap: 10px; justify-content: center; align-items: center; white-space: nowrap; padding-bottom: 4px; }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 10px; border-radius: 20px; }
+        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.1); }
+        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 6px 14px !important; }
+
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-between; padding: 14px 5%; }
+            .brand-logo img { width: 48px; height: 48px; }
+            .brand-logo span { font-size: 1.8rem; }
+            nav { width: auto; overflow: visible; }
+            nav ul { gap: 18px; padding-bottom: 0; }
+            nav a { font-size: 0.85rem; padding: 8px 12px; }
+        }
+
+        section { padding: 130px 5% 50px; max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 35px; }
+        .section-header p { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); }
+
+        .about-layout { display: grid; grid-template-columns: 1fr; gap: 25px; align-items: center; }
+        @media (min-width: 800px) { .about-layout { grid-template-columns: 1fr 1.2fr; gap: 40px; } }
+
+        .about-img-box { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 25px rgba(0,0,0,0.05); aspect-ratio: 4/5; max-width: 450px; margin: 0 auto; width: 100%; }
+        .about-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .about-card { background: var(--bg-card); border: 1px solid var(--border); padding: 25px; border-radius: var(--radius); }
+        @media (min-width: 600px) { .about-card { padding: 35px; } }
+        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-dark); line-height: 1.2; }
+        .about-card p { color: var(--text-muted); margin-bottom: 15px; font-size: 0.92rem; }
+        .about-highlights { list-style: none; margin-top: 15px; }
+        .about-highlights li { position: relative; padding-left: 22px; margin-bottom: 10px; font-size: 0.9rem; font-weight: 500; }
+        .about-highlights li::before { content: "✦"; position: absolute; left: 0; color: var(--accent-gold); }
+
+        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 45px 5% 25px; text-align: center; margin-top: 40px; }
+        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 8px; }
+        footer p { color: var(--accent-nude); font-size: 0.85rem; margin-bottom: 20px; }
+        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid var(--accent-gold); padding: 10px 20px; border-radius: 30px; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="brand-logo">
+            <img src="logo.png" alt="Nails by Deb Logo">
+            <span>Nails by Deb</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html" class="active">À propos</a></li>
+                <li><a href="realisations.html">Réalisations</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="rules.html">Consignes</a></li>
+                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div class="section-header">
+            <p>Mon Profil</p>
+            <h1>À propos de moi</h1>
+        </div>
+        <div class="about-layout">
+            <div class="about-img-box">
+                <img src="deborah.jpg" alt="Deborah — Prothésiste Ongulaire">
+            </div>
+            <div class="about-card">
+                <h3>Une Nails artiste & un diplôme certifié</h3>
+                <p>À 23 ans, j'ai concrétisé ma passion pour l'esthétique de l'ongle en obtenant mon diplôme de prothésiste ongulaire. Je vous accueille dans mon Home Studio pensé comme un cocon privé dans le 95.</p>
+                <p>Mon engagement : utiliser des produits de qualité supérieure et adapter chaque technique à la nature de vos ongles pour une tenue irréprochable.</p>
+                <ul class="about-highlights">
+                    <li>Diplômée & Certifiée en prothésie ongulaire</li>
+                    <li>Accompagnement personnalisé & conseils d'entretien</li>
+                    <li>Hygiène stricte & matériel désinfecté à chaque cliente</li>
+                    <li>Créations tendances, du naturel au Nail Art travaillé</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Nails by Deb</h3>
+        <p>Deborah — Home Studio Ongulaire dans le Val-d'Oise (95)</p>
+        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
+    </footer>
+</body>
+</html>
