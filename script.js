@@ -62,7 +62,39 @@
     scene.addEventListener("pointerup", relacher);
   }
 
+  /* --- Filtres de la galerie -------------------------------------------- */
+  var barre = document.querySelector("[data-filtres]");
+  var grille = document.querySelector("[data-grille]");
+
+  if (barre && grille) {
+    var compte = document.querySelector("[data-compte]");
+    var toutes = Array.prototype.slice.call(grille.querySelectorAll("[data-piece]"));
+
+    barre.addEventListener("click", function (e) {
+      var puce = e.target.closest("[data-filtre]");
+      if (!puce) return;
+
+      var choix = puce.dataset.filtre;
+      barre.querySelectorAll("[data-filtre]").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b === puce));
+      });
+
+      var visibles = 0;
+      toutes.forEach(function (piece) {
+        var garder = choix === "tout" || piece.dataset.cat === choix;
+        piece.hidden = !garder;
+        if (garder) visibles++;
+      });
+
+      if (compte) {
+        compte.textContent =
+          visibles + (visibles > 1 ? " poses affichées" : " pose affichée");
+      }
+    });
+  }
+
   /* --- Visionneuse de galerie ------------------------------------------- */
+  // Seules les vignettes visibles entrent dans la navigation de la visionneuse.
   var vues = Array.prototype.slice.call(document.querySelectorAll("[data-piece]"));
   var boite = document.querySelector("[data-visionneuse]");
 
@@ -70,19 +102,22 @@
 
   var affichee = boite.querySelector("img");
   var position = 0;
+  var parcours = vues; // recalculé à chaque ouverture selon le filtre actif
 
   function montrer(i) {
-    position = (i + vues.length) % vues.length;
-    var source = vues[position].querySelector("img");
+    position = (i + parcours.length) % parcours.length;
+    var source = parcours[position].querySelector("img");
     affichee.src = source.currentSrc || source.src;
     affichee.alt = source.alt;
     boite.querySelector("[data-rang]").textContent =
-      position + 1 + " sur " + vues.length;
+      position + 1 + " sur " + parcours.length;
   }
 
-  vues.forEach(function (vue, i) {
+  vues.forEach(function (vue) {
     vue.addEventListener("click", function () {
-      montrer(i);
+      // On ne parcourt que ce qui est effectivement affiché.
+      parcours = vues.filter(function (v) { return !v.hidden; });
+      montrer(parcours.indexOf(vue));
       boite.showModal();
     });
   });

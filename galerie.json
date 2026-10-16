@@ -1,0 +1,34 @@
+{
+  "_lisezmoi": "Manifeste de la galerie. Pour ajouter une pose : déposer la photo à la racine (galerie24.jpg…), ajouter une entrée ici, puis lancer python3 tools/build-images.py && python3 tools/build-galerie.py. Catégories possibles : relief, french, dore, couleur.",
+  "categories": [
+    { "cle": "relief",  "nom": "Nail art en relief" },
+    { "cle": "french",  "nom": "French & nude" },
+    { "cle": "dore",    "nom": "Doré & chromé" },
+    { "cle": "couleur", "nom": "Couleur" }
+  ],
+  "poses": [
+    { "fichier": "galerie9",  "cat": "relief",  "alt": "Pose ballerine rose avec fleurs sculptées en relief et perles dorées" },
+    { "fichier": "galerie17", "cat": "dore",    "alt": "Amande blanche et nude cerclée de chrome doré" },
+    { "fichier": "galerie7",  "cat": "french",  "alt": "French blanche sur ongles carrés courts" },
+    { "fichier": "galerie12", "cat": "couleur", "alt": "Vert sapin effet œil-de-chat avec coulées dorées" },
+    { "fichier": "galerie8",  "cat": "relief",  "alt": "Pose rose nacrée avec nœuds sculptés blancs et perles" },
+    { "fichier": "galerie22", "cat": "french",  "alt": "Amande french nude avec petites fleurs peintes à la main" },
+    { "fichier": "galerie2",  "cat": "dore",    "alt": "Pose longue aqua et dorée, relief sculpté et strass posés à la main" },
+    { "fichier": "galerie10", "cat": "relief",  "alt": "Amande rose et blanche avec nœuds sculptés et perles" },
+    { "fichier": "galerie18", "cat": "dore",    "alt": "Amande nude parcourue d'arabesques chromées dorées" },
+    { "fichier": "galerie14", "cat": "couleur", "alt": "Dégradé rose sur ballerine avec étoiles dorées" },
+    { "fichier": "galerie1",  "cat": "relief",  "alt": "Pose ballerine aqua avec fleur sculptée en relief et strass" },
+    { "fichier": "galerie13", "cat": "french",  "alt": "Nude rosé brillant sur ongles carrés longs" },
+    { "fichier": "galerie11", "cat": "couleur", "alt": "Ballerine jaune pâle avec fleurs sculptées crème et perles dorées" },
+    { "fichier": "galerie21", "cat": "relief",  "alt": "Stiletto léopard avec perles dorées et bambou peint" },
+    { "fichier": "galerie6",  "cat": "dore",    "alt": "Amande nude cerclée de chrome doré avec fleur sculptée blanche" },
+    { "fichier": "galerie3",  "cat": "relief",  "alt": "Stiletto blanc à pois noirs, fleurs fuchsia en relief et charms dorés" },
+    { "fichier": "galerie15", "cat": "couleur", "alt": "French bleu nuit avec fleur sculptée blanche et perles dorées" },
+    { "fichier": "galerie19", "cat": "french",  "alt": "French rose sur carrés courts avec ligne de strass" },
+    { "fichier": "galerie20", "cat": "dore",    "alt": "Amande blanche et rosée avec nœuds dorés et fleurs sculptées" },
+    { "fichier": "galerie4",  "cat": "relief",  "alt": "Pose rose nacrée avec motifs en relief et finitions brillantes" },
+    { "fichier": "galerie16", "cat": "french",  "alt": "Ballerine dégradée nude et blanche avec fleur sculptée" },
+    { "fichier": "galerie23", "cat": "relief",  "alt": "French rose et blanche avec fleur sculptée et pendentif cœur" },
+    { "fichier": "galerie5",  "cat": "couleur", "alt": "Pose colorée avec dégradé et décors appliqués à la main" }
+  ]
+}

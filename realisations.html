@@ -54,47 +54,115 @@
     <div class="enveloppe">
       <div class="section__chapeau">
         <h1>Réalisations</h1>
-        <p>Une sélection de poses récentes. Touchez une photo pour l'agrandir.
+        <p>23 poses réalisées au studio. Filtrez par style, touchez une photo pour l'agrandir.
            Les nouveautés paraissent d'abord sur Instagram.</p>
       </div>
 
-      <div class="galerie">
-        <figure class="piece" data-piece>
-          <img src="img/galerie1-800.webp"
-               srcset="img/galerie1-480.webp 480w, img/galerie1-800.webp 800w, img/galerie1-1200.webp 1200w"
-               sizes="(min-width: 48rem) 50vw, 50vw"
-               alt="Pose ballerine aqua avec fleur sculptée en relief et strass"
-               width="1320" height="1499">
+      <!-- galerie:debut -->
+      <div class="filtres" data-filtres role="group" aria-label="Filtrer les réalisations">
+        <button class="puce" data-filtre="tout" aria-pressed="true">Tout</button>
+        <button class="puce" data-filtre="relief" aria-pressed="false">Nail art en relief</button>
+        <button class="puce" data-filtre="french" aria-pressed="false">French & nude</button>
+        <button class="puce" data-filtre="dore" aria-pressed="false">Doré & chromé</button>
+        <button class="puce" data-filtre="couleur" aria-pressed="false">Couleur</button>
+      </div>
+
+      <div class="galerie galerie--dense" data-grille>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie9-480.webp" srcset="img/galerie9-480.webp 480w, img/galerie9-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Pose ballerine rose avec fleurs sculptées en relief et perles dorées" loading="lazy">
         </figure>
-        <figure class="piece" data-piece>
-          <img src="img/galerie2-800.webp"
-               srcset="img/galerie2-480.webp 480w, img/galerie2-800.webp 800w"
-               sizes="(min-width: 48rem) 25vw, 50vw"
-               alt="Pose longue aqua et dorée, relief sculpté et strass posés à la main"
-               loading="lazy" width="1190" height="1608">
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie17-480.webp" srcset="img/galerie17-480.webp 480w, img/galerie17-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Amande blanche et nude cerclée de chrome doré" loading="lazy">
         </figure>
-        <figure class="piece" data-piece>
-          <img src="img/galerie3-800.webp"
-               srcset="img/galerie3-480.webp 480w, img/galerie3-800.webp 800w"
-               sizes="(min-width: 48rem) 25vw, 50vw"
-               alt="Stiletto blanc à pois noirs, fleurs fuchsia en relief et charms dorés"
-               loading="lazy" width="1197" height="1561">
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie7-480.webp" srcset="img/galerie7-480.webp 480w, img/galerie7-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="French blanche sur ongles carrés courts" loading="lazy">
         </figure>
-        <figure class="piece" data-piece>
-          <img src="img/galerie4-800.webp"
-               srcset="img/galerie4-480.webp 480w, img/galerie4-800.webp 800w"
-               sizes="(min-width: 48rem) 25vw, 50vw"
-               alt="Pose rose nacrée avec motifs en relief et finitions brillantes"
-               loading="lazy" width="1168" height="1605">
+        <figure class="piece" data-piece data-cat="couleur">
+          <img src="img/galerie12-480.webp" srcset="img/galerie12-480.webp 480w, img/galerie12-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Vert sapin effet œil-de-chat avec coulées dorées" loading="lazy">
         </figure>
-        <figure class="piece" data-piece>
-          <img src="img/galerie5-800.webp"
-               srcset="img/galerie5-480.webp 480w, img/galerie5-800.webp 800w"
-               sizes="(min-width: 48rem) 25vw, 50vw"
-               alt="Pose colorée avec dégradé et décors appliqués à la main"
-               loading="lazy" width="1179" height="1594">
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie8-480.webp" srcset="img/galerie8-480.webp 480w, img/galerie8-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Pose rose nacrée avec nœuds sculptés blancs et perles" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie22-480.webp" srcset="img/galerie22-480.webp 480w, img/galerie22-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Amande french nude avec petites fleurs peintes à la main" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie2-480.webp" srcset="img/galerie2-480.webp 480w, img/galerie2-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Pose longue aqua et dorée, relief sculpté et strass posés à la main" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie10-480.webp" srcset="img/galerie10-480.webp 480w, img/galerie10-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Amande rose et blanche avec nœuds sculptés et perles" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie18-480.webp" srcset="img/galerie18-480.webp 480w, img/galerie18-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Amande nude parcourue d'arabesques chromées dorées" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="couleur">
+          <img src="img/galerie14-480.webp" srcset="img/galerie14-480.webp 480w, img/galerie14-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Dégradé rose sur ballerine avec étoiles dorées" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie1-480.webp" srcset="img/galerie1-480.webp 480w, img/galerie1-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Pose ballerine aqua avec fleur sculptée en relief et strass" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie13-480.webp" srcset="img/galerie13-480.webp 480w, img/galerie13-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Nude rosé brillant sur ongles carrés longs" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="couleur">
+          <img src="img/galerie11-480.webp" srcset="img/galerie11-480.webp 480w, img/galerie11-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Ballerine jaune pâle avec fleurs sculptées crème et perles dorées" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie21-480.webp" srcset="img/galerie21-480.webp 480w, img/galerie21-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Stiletto léopard avec perles dorées et bambou peint" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie6-480.webp" srcset="img/galerie6-480.webp 480w, img/galerie6-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Amande nude cerclée de chrome doré avec fleur sculptée blanche" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie3-480.webp" srcset="img/galerie3-480.webp 480w, img/galerie3-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Stiletto blanc à pois noirs, fleurs fuchsia en relief et charms dorés" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="couleur">
+          <img src="img/galerie15-480.webp" srcset="img/galerie15-480.webp 480w, img/galerie15-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="French bleu nuit avec fleur sculptée blanche et perles dorées" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie19-480.webp" srcset="img/galerie19-480.webp 480w, img/galerie19-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="French rose sur carrés courts avec ligne de strass" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie20-480.webp" srcset="img/galerie20-480.webp 480w, img/galerie20-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Amande blanche et rosée avec nœuds dorés et fleurs sculptées" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie4-480.webp" srcset="img/galerie4-480.webp 480w, img/galerie4-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Pose rose nacrée avec motifs en relief et finitions brillantes" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie16-480.webp" srcset="img/galerie16-480.webp 480w, img/galerie16-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Ballerine dégradée nude et blanche avec fleur sculptée" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie23-480.webp" srcset="img/galerie23-480.webp 480w, img/galerie23-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="French rose et blanche avec fleur sculptée et pendentif cœur" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="couleur">
+          <img src="img/galerie5-480.webp" srcset="img/galerie5-480.webp 480w, img/galerie5-800.webp 800w"
+               sizes="(min-width: 75rem) 23vw, (min-width: 48rem) 31vw, 47vw" alt="Pose colorée avec dégradé et décors appliqués à la main" loading="lazy">
         </figure>
       </div>
+      <!-- galerie:fin -->
+      <p class="compte-poses" data-compte aria-live="polite">23 poses affichées</p>
 
       <div class="appel" style="margin-top:3.5rem">
         <h2>Une idée en tête&nbsp;?</h2>

@@ -315,18 +315,42 @@ a { color: var(--framboise); }
 .galerie { display: grid; gap: .9rem; grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 48rem) {
   .galerie { grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-  .galerie > :first-child { grid-column: span 2; grid-row: span 2; }
 }
+
+/* Grille dense : des vignettes régulières et serrées, pour que le volume
+   de travail se lise d'un coup d'œil plutôt qu'une photo à la fois. */
+.galerie--dense { gap: .55rem; }
+@media (min-width: 48rem) { .galerie--dense { grid-template-columns: repeat(3, 1fr); gap: .7rem; } }
+@media (min-width: 75rem) { .galerie--dense { grid-template-columns: repeat(4, 1fr); } }
 
 .piece {
   margin: 0; padding: 0; border: 0;
-  position: relative; overflow: hidden; border-radius: 4px;
+  position: relative; overflow: hidden; border-radius: 3px;
   background: var(--espresso-haut); cursor: zoom-in;
   aspect-ratio: 4 / 5;
 }
-.galerie > :first-child { aspect-ratio: auto; }
+.piece[hidden] { display: none; }
 .piece img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--courbe); }
-.piece:hover img { transform: scale(1.04); }
+.piece:hover img { transform: scale(1.05); }
+
+/* --- Filtres ------------------------------------------------------------ */
+.filtres {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+.puce {
+  font: inherit; font-size: .92rem; font-weight: 500;
+  min-height: 44px; padding: .5rem 1.1rem;
+  border: 1px solid var(--filet-actif); border-radius: 999px;
+  background: transparent; color: var(--texte);
+  cursor: pointer; transition: background-color .2s, color .2s, border-color .2s;
+}
+.puce:hover { border-color: var(--espresso); }
+.puce[aria-pressed="true"] {
+  background: var(--espresso); border-color: var(--espresso);
+  color: var(--texte-inverse);
+}
+.compte-poses { color: var(--texte-doux); font-size: .92rem; margin: 1.25rem 0 0; }
 
 /* --- Carte de prix ------------------------------------------------------ */
 .carte-prix { display: grid; gap: 2.75rem; }
