@@ -9,220 +9,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #F7F5F2;
-            --bg-card: #FFFFFF;
-            --color-brand: #141312; 
-            --color-gold: #C5A880;  
-            --color-gold-light: #E8DCB8;
-            --text-muted: #8C857E;
-            --border: #E6E0D8;
-            --radius: 16px;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-main: #F7F5F2; --bg-card: #FFFFFF;
+            --color-brand: #141312; --color-gold: #C5A880;
+            --text-muted: #8C857E; --border: #E6E0D8;
+            --radius: 16px; --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--color-brand); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        body { background-color: var(--bg-main); color: var(--color-brand); font-family: 'Montserrat', sans-serif; line-height: 1.7; overflow-x: hidden; }
 
-        /* =========================================================
-           ÉCRAN DE BIENVENUE D'EXCEPTION (SPLASH SCREEN HAUTE COUTURE)
-           ========================================================= */
         #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F5EFE6 55%, #E9E1D5 100%);
-            color: var(--color-brand);
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 30px;
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s ease;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at center, #FFFFFF 0%, #F5EFE6 60%, #EFE8DF 100%);
+            color: var(--color-brand); z-index: 99999;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 24px; transition: opacity 0.6s ease;
         }
+        .splash-content { max-width: 520px; width: 100%; }
+        .splash-logo-wrapper { position: relative; width: 130px; height: 130px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; }
+        .splash-logo { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--color-gold); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.25); z-index: 2; }
+        .splash-ring { position: absolute; width: 130px; height: 130px; border-radius: 50%; border: 1px dashed var(--color-gold); animation: spinRing 22s linear infinite; }
+        @keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        .splash-content {
-            max-width: 580px;
-            width: 100%;
-        }
+        .splash-subtitle { color: var(--color-gold); font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; display: block; font-weight: 500; }
+        .splash-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 400; line-height: 1.15; color: var(--color-brand); margin-bottom: 28px; }
+        .splash-title em { font-style: italic; color: var(--color-gold); }
 
-        /* LOGO & ANNEAUX DORÉS SANS 3D MAIS AVEC AURA LUMINEUSE */
-        .splash-logo-wrapper {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+        .btn-splash { background-color: var(--color-brand); color: #FAF8F5; border: 1px solid var(--color-brand); padding: 16px 40px; border-radius: 35px; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: var(--transition); font-weight: 500; box-shadow: 0 8px 25px rgba(20, 19, 18, 0.1); }
+        .btn-splash:hover { background-color: var(--color-gold); border-color: var(--color-gold); color: var(--color-brand); transform: translateY(-2px); }
 
-        /* Halo lumineux d'arrière-plan */
-        .splash-glow {
-            position: absolute;
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(197, 168, 128, 0.35) 0%, rgba(197, 168, 128, 0) 70%);
-            animation: pulseGlow 3.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { transform: scale(0.95); opacity: 0.5; }
-            100% { transform: scale(1.35); opacity: 0.9; }
-        }
-
-        .splash-logo {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1.5px solid var(--color-gold);
-            box-shadow: 0 12px 35px rgba(197, 168, 128, 0.28);
-            position: relative;
-            z-index: 3;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .splash-logo-wrapper:hover .splash-logo {
-            transform: scale(1.05);
-        }
-
-        /* Double anneau filigrane en rotation douce */
-        .splash-ring-1 {
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 1px dashed var(--color-gold);
-            animation: rotateClockwise 25s linear infinite;
-            opacity: 0.75;
-            z-index: 2;
-        }
-
-        .splash-ring-2 {
-            position: absolute;
-            width: 158px;
-            height: 158px;
-            border-radius: 50%;
-            border: 1px solid rgba(197, 168, 128, 0.25);
-            animation: rotateCounter 35s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes rotateClockwise {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes rotateCounter {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
-        }
-
-        /* TYPOGRAPHIE ET TEXTES */
-        .splash-tag {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--color-gold);
-            font-size: 0.72rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            display: block;
-            font-weight: 500;
-            opacity: 0;
-            animation: fadeInUp 0.9s 0.2s forwards ease-out;
-        }
-
-        .splash-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.4rem, 6.5vw, 3.8rem);
-            font-weight: 400;
-            line-height: 1.15;
-            color: var(--color-brand);
-            margin-bottom: 12px;
-            opacity: 0;
-            animation: fadeInUp 0.9s 0.4s forwards ease-out;
-        }
-
-        .splash-title em {
-            font-style: italic;
-            color: var(--color-gold);
-            font-weight: 300;
-        }
-
-        .splash-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            margin-bottom: 38px;
-            opacity: 0;
-            animation: fadeInUp 0.9s 0.5s forwards ease-out;
-        }
-
-        /* BOUTON D'ENTRÉE DU LUXE AVEC EFFET SHIMMER EN CONTINU */
-        .btn-splash {
-            position: relative;
-            display: inline-block;
-            background-color: var(--color-brand);
-            color: #FAF8F5;
-            border: 1px solid var(--color-brand);
-            padding: 18px 48px;
-            border-radius: 40px;
-            font-size: 0.76rem;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(20, 19, 18, 0.12);
-            opacity: 0;
-            animation: fadeInUp 0.9s 0.7s forwards ease-out;
-        }
-
-        /* Ligne de reflet lumineux à travers le bouton */
-        .btn-splash::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-            animation: shimmer 3.5s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        .btn-splash:hover {
-            background-color: var(--color-gold);
-            border-color: var(--color-gold);
-            color: var(--color-brand);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(197, 168, 128, 0.4);
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* =========================================================
-           HEADER HARMONISÉ (STRICTEMENT SUR UNE SEULE LIGNE)
-           ========================================================= */
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 4%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--color-brand); white-space: nowrap; }
-        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--color-gold); flex-shrink: 0; }
-        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--color-brand); white-space: nowrap; }
+        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 15px 4%; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .brand-logo { display: flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; color: var(--color-brand); white-space: nowrap; }
+        .brand-logo img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--color-gold); flex-shrink: 0; }
+        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--color-brand); line-height: 1; }
 
         nav { width: 100%; display: flex; justify-content: center; }
         nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; }
@@ -234,14 +52,9 @@
             header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
             nav ul { gap: 16px; flex-wrap: nowrap; }
             nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .brand-logo img { width: 44px; height: 44px; }
-            .brand-logo span { font-size: 0.95rem; letter-spacing: 4px; }
             .hero { padding-top: 140px !important; }
         }
 
-        /* =========================================================
-           CONTENU PRINCIPAL DU SITE
-           ========================================================= */
         .hero { padding: 40px 5% 50px; text-align: center; max-width: 900px; margin: 0 auto; }
         .hero-badge { display: inline-block; border: 1px solid var(--color-gold); color: var(--color-gold); padding: 5px 14px; border-radius: 30px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
         .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 7vw, 4.2rem); line-height: 1.15; margin-bottom: 15px; color: var(--color-brand); font-weight: 500; }
@@ -252,7 +65,7 @@
         @media(min-width: 500px) { .hero-cta-group { flex-direction: row; } }
 
         .btn-primary { display: inline-block; background-color: var(--color-brand); color: #FFF; text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 100%; max-width: 250px; }
-        .btn-primary:hover { background-color: var(--color-gold); color: var(--color-brand); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
+        .btn-primary:hover { background-color: var(--color-gold); color: var(--color-brand); }
 
         .btn-secondary { display: inline-block; background-color: transparent; color: var(--color-brand); border: 1px solid var(--border); text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 100%; max-width: 250px; }
         .btn-secondary:hover { border-color: var(--color-gold); color: var(--color-gold); background: rgba(197, 168, 128, 0.05); }
@@ -282,23 +95,18 @@
 </head>
 <body>
 
-    <!-- ÉCRAN D'ACCUEIL D'ENTRÉE HAUTE COUTURE -->
     <div id="splash-screen">
         <div class="splash-content">
-            <div class="splash-logo-wrapper" onclick="enterStudio()">
-                <div class="splash-glow"></div>
-                <div class="splash-ring-1"></div>
-                <div class="splash-ring-2"></div>
+            <div class="splash-logo-wrapper">
+                <div class="splash-ring"></div>
                 <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
             </div>
-            <span class="splash-tag">Studio Privé · Val-d'Oise (95)</span>
+            <span class="splash-subtitle">Studio Privé · Val-d'Oise (95)</span>
             <h1 class="splash-title">Bienvenue dans l'univers<br><em>Nails by Deb</em></h1>
-            <p class="splash-desc">Haute manucure & soins sur-mesure</p>
             <button class="btn-splash" onclick="enterStudio()">Entrer dans le studio</button>
         </div>
     </div>
 
-    <!-- HEADER ET STRUCTURE DU SITE -->
     <header>
         <a href="index.html" class="brand-logo">
             <img src="logo.png" alt="Nails by Deb Logo">
@@ -307,10 +115,9 @@
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="realisations.html">Réalisations</a></li>
+                <li><a href="realisations.html">Galerie</a></li>
                 <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="rules.html">Consignes</a></li>
+                <li><a href="about.html">À propos</a></li>
                 <li><a href="booking.html" class="btn-nav">Réserver</a></li>
             </ul>
         </nav>
@@ -371,11 +178,20 @@
     </footer>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const splash = document.getElementById('splash-screen');
+            if(sessionStorage.getItem('splashSeen') === 'true') {
+                splash.style.display = 'none';
+            }
+        });
+
         function enterStudio() {
+            sessionStorage.setItem('splashSeen', 'true');
             const splash = document.getElementById('splash-screen');
             splash.style.opacity = '0';
-            splash.style.transform = 'scale(1.04)';
-            splash.style.visibility = 'hidden';
+            setTimeout(() => {
+                splash.style.display = 'none';
+            }, 600);
         }
     </script>
 </body>
