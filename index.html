@@ -1,198 +1,204 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nails by Deb — Salon Privé & Haute Manucure (95)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-main: #F7F5F2; --bg-card: #FFFFFF;
-            --color-brand: #141312; --color-gold: #C5A880;
-            --text-muted: #8C857E; --border: #E6E0D8;
-            --radius: 16px; --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--color-brand); font-family: 'Montserrat', sans-serif; line-height: 1.7; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nails by Deb — Nail art sur-mesure dans le Val-d'Oise</title>
+<meta name="description" content="Studio privé de prothésie ongulaire dans le Val-d'Oise. Nail art sculpté, Gel-X, gainage et poses sur-mesure par Deborah. Sur rendez-vous.">
+<link rel="canonical" href="https://jrpsg92.github.io/NailsbyDeb/">
 
-        #splash-screen {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at center, #FFFFFF 0%, #F5EFE6 60%, #EFE8DF 100%);
-            color: var(--color-brand); z-index: 99999;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 24px; transition: opacity 0.6s ease;
-        }
-        .splash-content { max-width: 520px; width: 100%; }
-        .splash-logo-wrapper { position: relative; width: 130px; height: 130px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; }
-        .splash-logo { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--color-gold); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.25); z-index: 2; }
-        .splash-ring { position: absolute; width: 130px; height: 130px; border-radius: 50%; border: 1px dashed var(--color-gold); animation: spinRing 22s linear infinite; }
-        @keyframes spinRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nails by Deb — Nail art sur-mesure dans le Val-d'Oise">
+<meta property="og:description" content="Nail art sculpté, Gel-X, gainage et poses sur-mesure dans un studio privé du Val-d'Oise.">
+<meta property="og:image" content="https://jrpsg92.github.io/NailsbyDeb/img/og-image.jpg">
+<meta property="og:url" content="https://jrpsg92.github.io/NailsbyDeb/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
 
-        .splash-subtitle { color: var(--color-gold); font-size: 0.72rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; display: block; font-weight: 500; }
-        .splash-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 400; line-height: 1.15; color: var(--color-brand); margin-bottom: 28px; }
-        .splash-title em { font-style: italic; color: var(--color-gold); }
+<link rel="icon" href="img/logo-96.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#F2ECE3">
 
-        .btn-splash { background-color: var(--color-brand); color: #FAF8F5; border: 1px solid var(--color-brand); padding: 16px 40px; border-radius: 35px; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: var(--transition); font-weight: 500; box-shadow: 0 8px 25px rgba(20, 19, 18, 0.1); }
-        .btn-splash:hover { background-color: var(--color-gold); border-color: var(--color-gold); color: var(--color-brand); transform: translateY(-2px); }
-
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 15px 4%; display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .brand-logo { display: flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; color: var(--color-brand); white-space: nowrap; }
-        .brand-logo img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--color-gold); flex-shrink: 0; }
-        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--color-brand); line-height: 1; }
-
-        nav { width: 100%; display: flex; justify-content: center; }
-        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; }
-        nav a { text-decoration: none; color: var(--color-brand); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding: 6px 10px; border-radius: 15px; transition: var(--transition); }
-        nav a:hover, nav a.active { color: var(--color-gold); background: rgba(197, 168, 128, 0.08); }
-        .btn-nav { background-color: var(--color-brand) !important; color: #FFF !important; padding: 6px 14px !important; }
-
-        @media (min-width: 768px) {
-            header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
-            nav ul { gap: 16px; flex-wrap: nowrap; }
-            nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .hero { padding-top: 140px !important; }
-        }
-
-        .hero { padding: 40px 5% 50px; text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero-badge { display: inline-block; border: 1px solid var(--color-gold); color: var(--color-gold); padding: 5px 14px; border-radius: 30px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
-        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 7vw, 4.2rem); line-height: 1.15; margin-bottom: 15px; color: var(--color-brand); font-weight: 500; }
-        .hero h1 em { font-style: italic; color: var(--color-gold); }
-        .hero p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; font-weight: 300; }
-
-        .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; }
-        @media(min-width: 500px) { .hero-cta-group { flex-direction: row; } }
-
-        .btn-primary { display: inline-block; background-color: var(--color-brand); color: #FFF; text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 100%; max-width: 250px; }
-        .btn-primary:hover { background-color: var(--color-gold); color: var(--color-brand); }
-
-        .btn-secondary { display: inline-block; background-color: transparent; color: var(--color-brand); border: 1px solid var(--border); text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 100%; max-width: 250px; }
-        .btn-secondary:hover { border-color: var(--color-gold); color: var(--color-gold); background: rgba(197, 168, 128, 0.05); }
-
-        .marquee-container { width: 100%; overflow: hidden; background-color: var(--color-brand); color: #FAF8F5; padding: 12px 0; margin: 30px 0 45px; white-space: nowrap; border-top: 1px solid rgba(197, 168, 128, 0.3); border-bottom: 1px solid rgba(197, 168, 128, 0.3); }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 2.5px; text-transform: uppercase; }
-        .marquee-content span { margin: 0 20px; color: var(--color-gold); }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        .experience-section { padding: 0 5% 50px; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .experience-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--color-brand); margin-bottom: 10px; font-weight: 400; }
-        .experience-section p.sub { color: var(--text-muted); font-size: 0.84rem; max-width: 500px; margin: 0 auto 30px; font-weight: 300; }
-        .preview-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-        @media (min-width: 768px) { .preview-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
-        .card-preview { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 22px; text-align: left; text-decoration: none; color: inherit; transition: var(--transition); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
-        .card-preview:hover { border-color: var(--color-gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
-        .card-preview span.num { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--color-gold); display: block; margin-bottom: 10px; }
-        .card-preview h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 8px; color: var(--color-brand); font-weight: 500; }
-        .card-preview p { font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
-
-        footer { background-color: var(--color-brand); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 50px; border-top: 1px solid var(--border); }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; font-weight: 400; }
-        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
-        .social-link:hover { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-brand); }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
-    <div id="splash-screen">
-        <div class="splash-content">
-            <div class="splash-logo-wrapper">
-                <div class="splash-ring"></div>
-                <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
-            </div>
-            <span class="splash-subtitle">Studio Privé · Val-d'Oise (95)</span>
-            <h1 class="splash-title">Bienvenue dans l'univers<br><em>Nails by Deb</em></h1>
-            <button class="btn-splash" onclick="enterStudio()">Entrer dans le studio</button>
-        </div>
+<header class="entete">
+  <div class="enveloppe entete__rangee">
+    <a class="marque" href="index.html">
+      <img src="img/logo-96.png" alt="" width="30" height="30">
+      <span class="nom-marque">Nails by Deb</span>
+    </a>
+    <button class="bascule" data-bascule aria-expanded="false" aria-controls="menu" hidden>
+      <span class="bascule__traits" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="nav" id="menu" data-nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a class="reserver" href="booking.html">Réserver</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <section class="accroche--accueil">
+    <img class="accroche__objet" src="img/fleur-3d.svg"
+         alt="Fleur sculptée en relief avec strass, motif signature du studio"
+         width="400" height="400" fetchpriority="high">
+    <div class="enveloppe accroche__texte">
+      <div class="scene" data-scene>
+        <h1 class="bienvenue" data-relief>
+          Bienvenue
+          <span class="bienvenue__marque">chez <span class="nom-marque">Nails by Deb</span></span>
+        </h1>
+      </div>
+      <p>Nail art sculpté, strass posés un par un, finitions qui tiennent.
+         Studio privé dans le Val-d'Oise, sur rendez-vous.</p>
+      <div class="accroche__actions">
+        <a class="bouton bouton--plein" href="booking.html">Réserver un créneau</a>
+        <a class="bouton bouton--contour" href="realisations.html">Voir les réalisations</a>
+      </div>
     </div>
+  </section>
 
-    <header>
-        <a href="index.html" class="brand-logo">
-            <img src="logo.png" alt="Nails by Deb Logo">
-            <span>NAILS BY DEB</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="realisations.html">Galerie</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Section sombre : les ongles clairs et brillants ressortent bien mieux. -->
+  <section class="section section--espresso sur-espresso">
+    <div class="enveloppe">
+      <div class="section__chapeau">
+        <h2>Dernières poses</h2>
+        <p>Chaque pose se dessine avec vous. La forme, la longueur, les couleurs,
+           le relief. Rien n'est appliqué en série.</p>
+      </div>
 
-    <section class="hero">
-        <span class="hero-badge">Salon Privé · Val-d'Oise (95)</span>
-        <h1>L'art de la haute manucure <em>sur-mesure</em></h1>
-        <p>Bienvenue dans l'univers exclusif de Deborah. Un sanctuaire de beauté dédié à l'élégance de vos mains.</p>
-        <div class="hero-cta-group">
-            <a href="booking.html" class="btn-primary">Réserver mon soin</a>
-            <a href="tarifs.html" class="btn-secondary">Découvrir la carte</a>
-        </div>
-    </section>
+      <!-- apercu:debut -->
+      <div class="galerie galerie--dense">
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie9-480.webp" srcset="img/galerie9-480.webp 480w, img/galerie9-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Pose ballerine rose avec fleurs sculptées en relief et perles dorées">
+        </figure>
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie17-480.webp" srcset="img/galerie17-480.webp 480w, img/galerie17-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Amande blanche et nude cerclée de chrome doré">
+        </figure>
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie7-480.webp" srcset="img/galerie7-480.webp 480w, img/galerie7-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="French blanche sur ongles carrés courts" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="couleur">
+          <img src="img/galerie12-480.webp" srcset="img/galerie12-480.webp 480w, img/galerie12-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Vert sapin effet œil-de-chat avec coulées dorées" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie8-480.webp" srcset="img/galerie8-480.webp 480w, img/galerie8-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Pose rose nacrée avec nœuds sculptés blancs et perles" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="french">
+          <img src="img/galerie22-480.webp" srcset="img/galerie22-480.webp 480w, img/galerie22-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Amande french nude avec petites fleurs peintes à la main" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="dore">
+          <img src="img/galerie2-480.webp" srcset="img/galerie2-480.webp 480w, img/galerie2-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Pose longue aqua et dorée, relief sculpté et strass posés à la main" loading="lazy">
+        </figure>
+        <figure class="piece" data-piece data-cat="relief">
+          <img src="img/galerie10-480.webp" srcset="img/galerie10-480.webp 480w, img/galerie10-800.webp 800w"
+               sizes="(min-width: 48rem) 23vw, 47vw" alt="Amande rose et blanche avec nœuds sculptés et perles" loading="lazy">
+        </figure>
+      </div>
+      <!-- apercu:fin -->
 
-    <div class="marquee-container">
-        <div class="marquee-content">
-            HAUTE MANUCURE <span>✦</span> GAINAGE RUBBER <span>✦</span> POSE AMÉRICAINE GEL-X <span>✦</span> EXCELLENCE & RAFFINEMENT <span>✦</span> VAL-D'OISE (95) <span>✦</span>
-        </div>
+      <p style="margin-top:1.75rem">
+        <a class="bouton bouton--contour" href="realisations.html">Toute la galerie</a>
+      </p>
     </div>
+  </section>
 
-    <div class="experience-section">
-        <h2>L'Expérience Nails by Deb</h2>
-        <p class="sub">Une exigence absolue portée sur la santé de vos ongles et la perfection des finitions.</p>
-        
-        <div class="preview-grid">
-            <a href="about.html" class="card-preview">
-                <div>
-                    <span class="num">01</span>
-                    <h3>Savoir-faire</h3>
-                    <p>Diplômée et passionnée, Deborah sublime vos mains avec des techniques de pointe.</p>
-                </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-gold); margin-top:15px; display:block;">Découvrir →</span>
-            </a>
-            <a href="realisations.html" class="card-preview">
-                <div>
-                    <span class="num">02</span>
-                    <h3>Le Portfolio</h3>
-                    <p>Lignes pures et finitions irréprochables. Explorez les créations exclusives du studio.</p>
-                </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-gold); margin-top:15px; display:block;">Voir les réalisations →</span>
-            </a>
-            <a href="tarifs.html" class="card-preview">
-                <div>
-                    <span class="num">03</span>
-                    <h3>Prestations</h3>
-                    <p>Gainage, Gel-X ou Nail Art sur-mesure pour des mains d'exception au quotidien.</p>
-                </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-gold); margin-top:15px; display:block;">Consulter la carte →</span>
-            </a>
-        </div>
+  <section class="section">
+    <div class="enveloppe duo">
+      <img src="img/deborah-600.webp"
+           srcset="img/deborah-600.webp 600w, img/deborah-1000.webp 1000w"
+           sizes="(min-width: 52rem) 40vw, 100vw"
+           alt="Deborah au travail dans son studio" loading="lazy"
+           width="1221" height="2201">
+      <div>
+        <h2>Deborah, prothésiste ongulaire</h2>
+        <p>Diplômée en prothésie ongulaire à 23 ans, je reçois en studio privé
+           dans le Val-d'Oise. Je travaille sur rendez-vous, une cliente à la fois,
+           pour prendre le temps de faire les choses correctement.</p>
+        <ul class="liste-nue">
+          <li>Diplômée et certifiée en prothésie ongulaire</li>
+          <li>Diagnostic de l'ongle et conseils adaptés à chaque main</li>
+          <li>Protocole d'hygiène et stérilisation du matériel</li>
+          <li>Produits professionnels, tenue longue durée</li>
+        </ul>
+        <p style="margin-top:1.75rem">
+          <a class="bouton bouton--contour" href="about.html">En savoir plus</a>
+        </p>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
-        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
-    </footer>
+  <section class="section section--sable">
+    <div class="enveloppe">
+      <div class="appel">
+        <h2>Prête à réserver&nbsp;?</h2>
+        <p>Dites-moi la prestation qui vous intéresse et vos disponibilités,
+           je vous réponds avec un créneau.</p>
+        <a class="bouton" href="booking.html">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const splash = document.getElementById('splash-screen');
-            if(sessionStorage.getItem('splashSeen') === 'true') {
-                splash.style.display = 'none';
-            }
-        });
+</main>
 
-        function enterStudio() {
-            sessionStorage.setItem('splashSeen', 'true');
-            const splash = document.getElementById('splash-screen');
-            splash.style.opacity = '0';
-            setTimeout(() => {
-                splash.style.display = 'none';
-            }, 600);
-        }
-    </script>
+<footer class="pied">
+  <div class="enveloppe">
+    <div class="pied__rangee">
+      <div>
+        <strong class="nom-marque">Nails by Deb</strong>
+        <p>Studio privé sur rendez-vous, Val-d'Oise (95)</p>
+        <p><a href="https://instagram.com/nails_bydeb" rel="noopener">Instagram @nails_bydeb</a></p>
+      </div>
+      <ul>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a href="booking.html">Réserver</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </div>
+    <p class="pied__mention">© 2026 Nails by Deb</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NailSalon",
+  "name": "Nails by Deb",
+  "description": "Studio privé de prothésie ongulaire et nail art sur-mesure dans le Val-d'Oise.",
+  "url": "https://jrpsg92.github.io/NailsbyDeb/",
+  "image": "https://jrpsg92.github.io/NailsbyDeb/img/og-image.jpg",
+  "address": { "@type": "PostalAddress", "addressRegion": "Val-d'Oise", "postalCode": "95", "addressCountry": "FR" },
+  "sameAs": ["https://instagram.com/nails_bydeb"],
+  "priceRange": "30€–50€",
+  "availableService": [
+    { "@type": "Service", "name": "Pose Gel-X" },
+    { "@type": "Service", "name": "Gainage" },
+    { "@type": "Service", "name": "Nail art sur-mesure" }
+  ]
+}
+</script>
 </body>
 </html>

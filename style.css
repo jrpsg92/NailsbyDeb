@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Nails by Deb — feuille de style unique
+   Direction : sable chaud + espresso, accent framboise emprunté aux fleurs
+   sculptées de ses poses. Le beige reste la base ; la modernité vient de la
+   typographie large, du contraste franc et des photos plein cadre —
+   pas de dorure, pas d'italique décoratif.
+   ========================================================================== */
+
+/* --- Jetons ------------------------------------------------------------- */
+:root {
+  /* Sable : la base chaude */
+  --sable: #F2ECE3;
+  --sable-profond: #E8DFD2;
+
+  /* Espresso : le contrepoint sombre, chaud lui aussi (jamais un noir neutre) */
+  --espresso: #1E1711;
+  --espresso-haut: #2A211A;
+
+  /* Framboise : reprise des fleurs en relief de ses poses */
+  --framboise: #A82E60;
+  --framboise-clair: #F2A8C6;
+
+  /* Texte */
+  --texte: #1E1711;
+  --texte-doux: #5C5047;
+  --texte-inverse: #F2ECE3;
+  --texte-inverse-doux: #C9BCAC;
+
+  /* Filets : décoratif, puis porteur d'information (≥ 3:1) */
+  --filet: #DCD2C4;
+  --filet-actif: #94816A;
+  --filet-sombre: #3C3026;
+  --filet-sombre-actif: #7A6754;
+
+  --lisible: 64ch;
+  --respiration: clamp(3.5rem, 9vw, 7rem);
+  --courbe: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* --- Base --------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--sable);
+  color: var(--texte);
+  font-family: Figtree, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: clamp(1rem, .96rem + .2vw, 1.075rem);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Le display porte la personnalité : large, dense, serré. */
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: -.035em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(3rem, 1.6rem + 6.6vw, 6.5rem); }
+h2 { font-size: clamp(2.1rem, 1.3rem + 3.6vw, 3.8rem); }
+h3 {
+  font-size: clamp(1.15rem, 1.05rem + .5vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+
+p { margin: 0 0 1.1em; max-width: var(--lisible); }
+
+/* Les titres n'ont pas de marge basse : c'est l'élément suivant qui ouvre
+   l'espace, pour éviter les marges qui s'annulent entre blocs. */
+h1 + p, h2 + p { margin-top: 1.15rem; }
+h3 + p { margin-top: .5rem; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--framboise); }
+
+:focus-visible {
+  outline: 3px solid var(--framboise);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.enveloppe { width: min(100% - 2.5rem, 1220px); margin-inline: auto; }
+
+.enveloppe-accroche { width: min(100% - 2.5rem, 1220px); margin-inline: auto; }
+@media (min-width: 62rem) { .enveloppe-accroche { width: auto; margin-inline: 0; } }
+
+.saut-contenu {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--framboise); color: var(--sable);
+  padding: .75rem 1.25rem; z-index: 200; font-weight: 600;
+}
+.saut-contenu:focus { left: 1rem; top: 1rem; }
+
+/* --- En-tête ------------------------------------------------------------ */
+.entete {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--sable) 90%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--filet);
+}
+
+.entete__rangee {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-block: .8rem;
+}
+
+/* Le nom de la marque a son propre caractère : un serif à fort contraste,
+   espacé, qui tranche avec le grotesque des titres. */
+.nom-marque {
+  font-family: Italiana, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.marque {
+  display: flex; align-items: center; gap: .6rem;
+  text-decoration: none; color: var(--texte);
+  font-size: 1.15rem; line-height: 1;
+}
+.marque img { width: 30px; height: 30px; }
+
+.bascule {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: none; border: 1px solid var(--filet-actif); border-radius: 999px;
+  color: var(--texte); font: inherit; font-size: .9rem; font-weight: 600;
+  padding: .5rem .95rem; cursor: pointer; min-height: 44px;
+}
+.bascule__traits { position: relative; width: 16px; height: 2px; background: currentColor; }
+.bascule__traits::before, .bascule__traits::after {
+  content: ""; position: absolute; left: 0; width: 16px; height: 2px;
+  background: currentColor; transition: transform .3s var(--courbe);
+}
+.bascule__traits::before { top: -5px; }
+.bascule__traits::after { top: 5px; }
+[aria-expanded="true"] .bascule__traits { background: transparent; }
+[aria-expanded="true"] .bascule__traits::before { transform: translateY(5px) rotate(45deg); }
+[aria-expanded="true"] .bascule__traits::after { transform: translateY(-5px) rotate(-45deg); }
+
+.nav { display: none; }
+.nav[data-ouvert="true"] { display: block; }
+.nav ul { list-style: none; margin: 0; padding: 0 0 1rem; display: grid; gap: .15rem; }
+.nav a {
+  display: block; padding: .8rem .25rem; min-height: 44px;
+  color: var(--texte); text-decoration: none;
+  border-bottom: 1px solid var(--filet); font-weight: 500;
+}
+.nav a[aria-current="page"] { color: var(--framboise); }
+.nav .reserver {
+  margin-top: .6rem; border: 0;
+  background: var(--espresso); color: var(--texte-inverse);
+  border-radius: 999px; text-align: center; font-weight: 600;
+}
+
+@media (min-width: 62rem) {
+  .bascule { display: none; }
+  .nav { display: block !important; }
+  .nav ul { display: flex; align-items: center; gap: .3rem; padding: 0; }
+  .nav a {
+    border: 0; padding: .6rem .8rem; border-radius: 999px;
+    font-size: .95rem; display: flex; align-items: center;
+  }
+  .nav a:hover { color: var(--framboise); }
+  .nav .reserver { margin: 0 0 0 .5rem; padding-inline: 1.25rem; }
+  .nav .reserver:hover { background: var(--framboise); color: var(--texte-inverse); }
+}
+
+/* --- Boutons ------------------------------------------------------------ */
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: .85rem 1.6rem;
+  border-radius: 999px; border: 1px solid transparent;
+  font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  transition: transform .25s var(--courbe), background-color .25s, color .25s;
+}
+.bouton:hover { transform: translateY(-2px); }
+.bouton:active { transform: translateY(0); }
+
+.bouton--plein { background: var(--espresso); color: var(--texte-inverse); }
+.bouton--plein:hover { background: var(--framboise); }
+
+.bouton--contour { border-color: var(--filet-actif); color: var(--texte); background: transparent; }
+.bouton--contour:hover { border-color: var(--espresso); background: var(--espresso); color: var(--texte-inverse); }
+
+/* Sur fond espresso, les boutons s'inversent */
+.sur-espresso .bouton--plein { background: var(--sable); color: var(--espresso); }
+.sur-espresso .bouton--plein:hover { background: var(--framboise-clair); }
+.sur-espresso .bouton--contour { border-color: var(--filet-sombre-actif); color: var(--texte-inverse); }
+.sur-espresso .bouton--contour:hover { background: var(--sable); color: var(--espresso); border-color: var(--sable); }
+
+/* --- Accroche d'accueil : bienvenue, sans photo ------------------------- */
+/* L'objet 3D porte la marque ; les photos vivent dans la galerie. */
+.accroche--accueil {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: .25rem; /* le SVG porte déjà sa propre marge interne */
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 6rem);
+  background:
+    radial-gradient(70% 55% at 50% 12%, #FBF6F0 0%, var(--sable) 62%);
+}
+
+.accroche__objet {
+  width: clamp(180px, 42vw, 300px);
+  height: auto;
+  animation: flotter 7s ease-in-out infinite;
+}
+@keyframes flotter {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50%      { transform: translateY(-14px) rotate(1.5deg); }
+}
+
+/* Mot d'accueil en relief : la profondeur vient d'un empilement de copies
+   décalées, et le bloc s'incline vers le pointeur ou le doigt. */
+.scene { perspective: 900px; width: 100%; }
+
+.bienvenue {
+  margin: 0;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: .9;
+  font-size: clamp(3.2rem, 1rem + 11vw, 8rem);
+  color: #C84C80;
+  transform-style: preserve-3d;
+  transition: transform .4s var(--courbe);
+  will-change: transform;
+  text-shadow:
+     1px  1px 0 #BE4376,  2px  2px 0 #B43D6E,
+     3px  3px 0 #AA3766,  4px  4px 0 #A0325E,
+     5px  5px 0 #962D56,  6px  6px 0 #8C284E,
+     7px  7px 0 #822346,  8px  8px 0 #781E3E,
+     9px  9px 0 #6E1A36, 10px 10px 0 #641636,
+    12px 18px 26px rgb(94 23 52 / .3);
+}
+/* Pendant le survol, la réaction suit le doigt sans inertie. */
+.scene[data-actif="true"] .bienvenue { transition: transform .08s linear; }
+
+.bienvenue__marque {
+  display: block;
+  margin-top: .75rem;
+  font-family: Figtree, system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.05rem, .95rem + .5vw, 1.35rem);
+  letter-spacing: 0;
+  color: var(--texte-doux);
+  text-shadow: none;
+}
+
+.accroche--accueil .scene { margin-bottom: 1.5rem; }
+.accroche--accueil .accroche__texte > p { margin-top: 0; }
+
+.accroche--accueil .accroche__texte { padding: 0; }
+.accroche--accueil p { margin-inline: auto; }
+.accroche--accueil .accroche__actions { justify-content: center; }
+
+/* --- Accroche photo (pages intérieures) --------------------------------- */
+.accroche { position: relative; overflow: hidden; }
+
+.accroche__fond {
+  width: 100%; aspect-ratio: 4 / 5;
+  object-fit: cover; object-position: center 42%;
+}
+
+.accroche__texte { position: relative; z-index: 1; padding-block: 2rem 2.5rem; }
+.accroche__texte p {
+  font-size: clamp(1.05rem, 1rem + .45vw, 1.28rem);
+  color: var(--texte-doux); max-width: 44ch;
+}
+.accroche__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+
+/* Au-delà de 62rem, le portrait garde ses proportions dans sa colonne
+   plutôt que d'être étiré en bandeau : on voit la main entière. */
+@media (min-width: 62rem) {
+  .accroche {
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; min-height: min(82svh, 740px);
+  }
+  .accroche__fond { order: 2; height: 100%; aspect-ratio: auto; object-position: center 45%; }
+  .accroche__texte {
+    order: 1; padding-block: 3rem; width: 100%;
+    padding-inline: max(1.25rem, (100vw - 1220px) / 2) 3rem;
+  }
+}
+@media (min-width: 90rem) { .accroche { grid-template-columns: 1fr .85fr; } }
+
+/* Le reflet du gel : l'unique moment mis en scène, au chargement. */
+.reflet {
+  background: linear-gradient(100deg,
+      var(--espresso) 0 38%, var(--framboise) 48%, var(--espresso) 58% 100%);
+  background-size: 260% 100%;
+  background-position: 160% 0;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: balayage 1.9s var(--courbe) .2s both;
+}
+@keyframes balayage { to { background-position: -30% 0; } }
+
+/* --- Sections ----------------------------------------------------------- */
+.section { padding-block: var(--respiration); }
+.section--sable { background: var(--sable-profond); }
+
+.section--espresso {
+  background: var(--espresso);
+  color: var(--texte-inverse);
+}
+.section--espresso p { color: var(--texte-inverse-doux); }
+.section--espresso a { color: var(--framboise-clair); }
+
+.section__chapeau { max-width: var(--lisible); margin-bottom: 2.75rem; }
+.section__chapeau p { color: var(--texte-doux); margin-top: 1rem; margin-bottom: 0; }
+.section--espresso .section__chapeau p { color: var(--texte-inverse-doux); }
+
+/* --- Galerie ------------------------------------------------------------ */
+/* Grille éditoriale : les formats varient, aucune vignette n'est identique. */
+.galerie { display: grid; gap: .9rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 48rem) {
+  .galerie { grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+}
+
+/* Grille dense : des vignettes régulières et serrées, pour que le volume
+   de travail se lise d'un coup d'œil plutôt qu'une photo à la fois. */
+.galerie--dense { gap: .55rem; }
+@media (min-width: 48rem) { .galerie--dense { grid-template-columns: repeat(3, 1fr); gap: .7rem; } }
+@media (min-width: 75rem) { .galerie--dense { grid-template-columns: repeat(4, 1fr); } }
+
+.piece {
+  margin: 0; padding: 0; border: 0;
+  position: relative; overflow: hidden; border-radius: 3px;
+  background: var(--espresso-haut); cursor: zoom-in;
+  aspect-ratio: 4 / 5;
+}
+.piece[hidden] { display: none; }
+.piece img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--courbe); }
+.piece:hover img { transform: scale(1.05); }
+
+/* --- Filtres ------------------------------------------------------------ */
+.filtres {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+.puce {
+  font: inherit; font-size: .92rem; font-weight: 500;
+  min-height: 44px; padding: .5rem 1.1rem;
+  border: 1px solid var(--filet-actif); border-radius: 999px;
+  background: transparent; color: var(--texte);
+  cursor: pointer; transition: background-color .2s, color .2s, border-color .2s;
+}
+.puce:hover { border-color: var(--espresso); }
+.puce[aria-pressed="true"] {
+  background: var(--espresso); border-color: var(--espresso);
+  color: var(--texte-inverse);
+}
+.compte-poses { color: var(--texte-doux); font-size: .92rem; margin: 1.25rem 0 0; }
+
+/* --- Carte de prix ------------------------------------------------------ */
+.carte-prix { display: grid; gap: 2.75rem; }
+@media (min-width: 48rem) { .carte-prix { grid-template-columns: repeat(2, 1fr); gap: 3rem 3.5rem; } }
+
+.famille h3 { margin-bottom: 1rem; color: var(--framboise); }
+
+.prix { list-style: none; margin: 0; padding: 0; }
+.prix li {
+  display: flex; align-items: baseline; gap: .75rem;
+  padding-block: .75rem; border-bottom: 1px solid var(--filet);
+}
+/* Le filet pointillé relie la prestation à son prix. */
+.prix li::after {
+  content: ""; flex: 1; order: 1;
+  border-bottom: 1px dotted var(--filet-actif); translate: 0 -.3em;
+}
+.prix .montant {
+  order: 2; font-variant-numeric: tabular-nums;
+  font-weight: 600; white-space: nowrap;
+}
+.prix .detail { display: block; color: var(--texte-doux); font-size: .87rem; line-height: 1.4; }
+
+/* --- Blocs de texte ----------------------------------------------------- */
+.duo { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 52rem) { .duo { grid-template-columns: 5fr 7fr; gap: 4rem; } }
+.duo img { border-radius: 4px; width: 100%; }
+
+.liste-nue { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
+.liste-nue li { padding-left: 1.5rem; position: relative; color: var(--texte-doux); }
+.liste-nue li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: 7px; height: 7px; border-radius: 50%; background: var(--framboise);
+}
+.section--espresso .liste-nue li { color: var(--texte-inverse-doux); }
+.section--espresso .liste-nue li::before { background: var(--framboise-clair); }
+
+.consignes { display: grid; gap: 2rem; }
+@media (min-width: 48rem) { .consignes { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 3.5rem; } }
+.consignes h3 { margin-bottom: .45rem; }
+.consignes p { color: var(--texte-doux); margin: 0; }
+
+.texte-long { max-width: var(--lisible); }
+.texte-long h2 { margin-top: 2.5rem; margin-bottom: .75rem; }
+.texte-long h2:first-child { margin-top: 0; }
+
+/* --- Appel final -------------------------------------------------------- */
+.appel {
+  background: var(--espresso); color: var(--texte-inverse);
+  border-radius: 6px; padding: clamp(2rem, 5vw, 3.5rem); text-align: center;
+}
+.appel p { margin-inline: auto; color: var(--texte-inverse-doux); }
+.appel .bouton { margin-top: 1.5rem; background: var(--sable); color: var(--espresso); }
+.appel .bouton:hover { background: var(--framboise-clair); }
+
+/* --- Pied --------------------------------------------------------------- */
+.pied {
+  background: var(--espresso); color: var(--texte-inverse-doux);
+  padding-block: 3.5rem 2rem; font-size: .93rem;
+}
+.pied__rangee { display: grid; gap: 1.75rem; }
+@media (min-width: 48rem) { .pied__rangee { grid-template-columns: 1fr auto; align-items: start; } }
+.pied strong { display: block; color: var(--texte-inverse); font-weight: 600; margin-bottom: .4rem; }
+.pied p { margin-bottom: .4rem; }
+.pied a { color: var(--texte-inverse); text-decoration-color: var(--filet-sombre-actif); }
+.pied a:hover { color: var(--framboise-clair); }
+.pied ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.pied__mention {
+  margin-top: 2.5rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--filet-sombre); font-size: .85rem;
+}
+
+/* --- Visionneuse -------------------------------------------------------- */
+.visionneuse { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100svh; }
+.visionneuse::backdrop { background: rgb(18 13 9 / .94); }
+.visionneuse img { max-width: 92vw; max-height: 80svh; width: auto; border-radius: 4px; }
+.visionneuse__barre { display: flex; justify-content: center; gap: .75rem; padding-top: 1rem; }
+.visionneuse__bouton {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid var(--filet-sombre-actif);
+  background: var(--espresso-haut); color: var(--texte-inverse);
+  font-size: 1.1rem; cursor: pointer;
+}
+.visionneuse__bouton:hover { background: var(--sable); color: var(--espresso); }
+
+/* --- Utilitaires -------------------------------------------------------- */
+.hors-ecran {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .reflet {
+    animation: none; background: none;
+    color: var(--espresso); -webkit-text-fill-color: currentColor;
+  }
+}

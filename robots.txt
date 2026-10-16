@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /mentions-legales.html
+
+Sitemap: https://jrpsg92.github.io/NailsbyDeb/sitemap.xml

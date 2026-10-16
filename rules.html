@@ -1,137 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consignes — Nails by Deb</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-main: #F7F5F2;
-            --bg-card: #FFFFFF;
-            --accent-dark: #141312;
-            --accent-gold: #C5A880;
-            --text-main: #2C2A29;
-            --text-muted: #8C857E;
-            --border: #E6E0D8;
-            --radius: 12px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consignes — Nails by Deb</title>
+<meta name="description" content="Ponctualité, annulation 24 h à l'avance, accompagnants et préparation des mains : à savoir avant votre rendez-vous au studio.">
+<link rel="canonical" href="https://jrpsg92.github.io/NailsbyDeb/rules.html">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Consignes — Nails by Deb">
+<meta property="og:description" content="Ce qu'il faut savoir avant votre rendez-vous au studio.">
+<meta property="og:image" content="https://jrpsg92.github.io/NailsbyDeb/img/og-image.jpg">
+<meta property="og:url" content="https://jrpsg92.github.io/NailsbyDeb/rules.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(35px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.25s; }
+<link rel="icon" href="img/logo-96.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#F2ECE3">
 
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
-        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        
-        nav { width: 100%; display: flex; justify-content: center; }
-        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
-        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
-        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
-
-        @media (min-width: 768px) {
-            header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
-            nav ul { gap: 16px; flex-wrap: nowrap; }
-            nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .brand-logo img { width: 48px; height: 48px; }
-            .brand-logo span { font-size: 1.7rem; }
-            section { padding-top: 130px !important; }
-        }
-
-        section { padding: 40px 5% 50px; max-width: 900px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header p { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-weight: 500; }
-        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; line-height: 1.1; }
-
-        .rules-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        @media (min-width: 768px) { .rules-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; } }
-
-        .rule-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: var(--transition); }
-        .rule-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(197, 168, 128, 0.12); }
-
-        .rule-num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 10px; display: block; }
-        .rule-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--accent-dark); margin-bottom: 10px; font-weight: 500; }
-        .rule-card p { font-size: 0.85rem; color: var(--text-muted); font-weight: 300; line-height: 1.6; }
-
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
-        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
-        .social-link:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: #141312; }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html" class="brand-logo">
-            <img src="logo.png" alt="Nails by Deb Logo">
-            <span>Nails by Deb</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="realisations.html">Galerie</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="rules.html" class="active">Consignes</a></li>
-                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
-            </ul>
-        </nav>
-    </header>
+<a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
-    <section>
-        <div class="section-header animate-up">
-            <p>Règlement du Studio</p>
-            <h1>Consignes & Déroulement</h1>
+<header class="entete">
+  <div class="enveloppe entete__rangee">
+    <a class="marque" href="index.html">
+      <img src="img/logo-96.png" alt="" width="30" height="30">
+      <span class="nom-marque">Nails by Deb</span>
+    </a>
+    <button class="bascule" data-bascule aria-expanded="false" aria-controls="menu" hidden>
+      <span class="bascule__traits" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="nav" id="menu" data-nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="rules.html" aria-current="page">Consignes</a></li>
+        <li><a class="reserver" href="booking.html">Réserver</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="section">
+    <div class="enveloppe">
+      <div class="section__chapeau">
+        <h1>Avant de venir</h1>
+        <p>Rien de compliqué, juste ce qu'il faut pour que la séance se passe bien
+           et que les horaires tiennent pour tout le monde.</p>
+      </div>
+
+      <div class="consignes">
+        <div>
+          <h3>Ponctualité</h3>
+          <p>Un petit retard arrive, prévenez-moi simplement. Au-delà de
+             10 minutes, il faudra peut-être simplifier le décor ou décaler,
+             parce que quelqu'un passe juste après vous.</p>
         </div>
-
-        <div class="rules-grid">
-            <div class="rule-card animate-up delay-1">
-                <span class="rule-num">01</span>
-                <h3>Ponctualité</h3>
-                <p>Merci de respecter l'heure de votre rendez-vous. Tout retard supérieur à 10 minutes pourra entraîner l'annulation ou la simplification de la prestation.</p>
-            </div>
-
-            <div class="rule-card animate-up delay-1">
-                <span class="rule-num">02</span>
-                <h3>Accompagnateurs</h3>
-                <p>Afin de préserver l'intimité et le calme du studio privé, les accompagnateurs et animaux ne sont pas autorisés.</p>
-            </div>
-
-            <div class="rule-card animate-up delay-2">
-                <span class="rule-num">03</span>
-                <h3>Acompte & Annulation</h3>
-                <p>Toute annulation ou modification doit s'effectuer au minimum 24h à l'avance. L'acompte versé lors de la réservation reste non-remboursable en cas de désistement tardif.</p>
-            </div>
-
-            <div class="rule-card animate-up delay-2">
-                <span class="rule-num">04</span>
-                <h3>Mains Nues & Hygiène</h3>
-                <p>Merci d'arriver les mains propres et démaquillées si vous ne réservez pas de dépose préalable.</p>
-            </div>
+        <div>
+          <h3>Venir seule</h3>
+          <p>Le studio reçoit une personne à la fois, c'est ce qui en fait un
+             moment tranquille. Accompagnants et animaux ne peuvent donc pas
+             être accueillis.</p>
         </div>
-    </section>
+        <div>
+          <h3>Annulation</h3>
+          <p>Pas d'acompte à verser, la réservation se fait sur parole.
+             En échange, prévenez-moi au moins 24 h à l'avance si vous devez
+             annuler ou décaler, ça me laisse le temps de proposer le créneau
+             à quelqu'un d'autre.</p>
+        </div>
+        <div>
+          <h3>Préparation des mains</h3>
+          <p>Mains propres et sans vernis, sauf si vous avez prévu une dépose
+             avec moi. Et dites-moi avant si vous avez une allergie ou un ongle
+             fragilisé, on adapte.</p>
+        </div>
+      </div>
 
-    <footer>
-        <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
-        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
-    </footer>
-</body>
-</html>
-        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
-    </footer>
+      <div class="appel" style="margin-top:3.5rem">
+        <h2>Une question&nbsp;?</h2>
+        <p>Posez-la avant de réserver, c'est toujours plus simple.</p>
+        <a class="bouton" href="booking.html">Me contacter</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="enveloppe">
+    <div class="pied__rangee">
+      <div>
+        <strong class="nom-marque">Nails by Deb</strong>
+        <p>Studio privé sur rendez-vous, Val-d'Oise (95)</p>
+        <p><a href="https://instagram.com/nails_bydeb" rel="noopener">Instagram @nails_bydeb</a></p>
+      </div>
+      <ul>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a href="booking.html">Réserver</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </div>
+    <p class="pied__mention">© 2026 Nails by Deb</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

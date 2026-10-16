@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img"
+     aria-label="Fleur sculptée en relief avec strass, motif signature du studio">
+  <defs>
+    <!-- Volume du pétale : lumière en haut à gauche, ombre vers le cœur -->
+    <linearGradient id="petale" x1="22%" y1="4%" x2="78%" y2="100%">
+      <stop offset="0%"   stop-color="#FFF4F8"/>
+      <stop offset="34%"  stop-color="#F4B9D0"/>
+      <stop offset="72%"  stop-color="#C84C80"/>
+      <stop offset="100%" stop-color="#7E2048"/>
+    </linearGradient>
+
+    <!-- Reflet spéculaire du gel -->
+    <linearGradient id="brillance" x1="20%" y1="0%" x2="80%" y2="80%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity=".92"/>
+      <stop offset="55%"  stop-color="#FFFFFF" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="strass" cx="34%" cy="28%" r="78%">
+      <stop offset="0%"   stop-color="#FFFFFF"/>
+      <stop offset="42%"  stop-color="#FBE6EE"/>
+      <stop offset="100%" stop-color="#D08BA8"/>
+    </radialGradient>
+
+    <radialGradient id="coeur" cx="36%" cy="30%" r="80%">
+      <stop offset="0%"   stop-color="#FFE9F1"/>
+      <stop offset="60%"  stop-color="#D4789C"/>
+      <stop offset="100%" stop-color="#8E2854"/>
+    </radialGradient>
+
+    <filter id="ombre" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#5A1733" flood-opacity=".28"/>
+    </filter>
+
+    <!-- Un pétale, défini une fois puis répété en rotation -->
+    <g id="unPetale">
+      <path d="M200 206c-34-32-40-86-14-124 5-7 23-7 28 0 26 38 20 92-14 124Z"
+            fill="url(#petale)"/>
+      <path d="M193 96c-11 22-14 52-8 78 1 6-7 8-9 2-9-27-6-61 6-82 3-5 13-3 11 2Z"
+            fill="url(#brillance)"/>
+    </g>
+  </defs>
+
+  <g filter="url(#ombre)">
+    <use href="#unPetale" transform="rotate(0 200 206)"/>
+    <use href="#unPetale" transform="rotate(72 200 206)"/>
+    <use href="#unPetale" transform="rotate(144 200 206)"/>
+    <use href="#unPetale" transform="rotate(216 200 206)"/>
+    <use href="#unPetale" transform="rotate(288 200 206)"/>
+
+    <!-- Cœur bombé -->
+    <circle cx="200" cy="206" r="34" fill="url(#coeur)"/>
+    <ellipse cx="190" cy="194" rx="13" ry="9" fill="#FFFFFF" opacity=".5"
+             transform="rotate(-34 190 194)"/>
+
+    <!-- Strass sertis au cœur -->
+    <circle cx="200" cy="192" r="9" fill="url(#strass)"/>
+    <circle cx="187" cy="213" r="7.5" fill="url(#strass)"/>
+    <circle cx="213" cy="213" r="7.5" fill="url(#strass)"/>
+    <circle cx="197.5" cy="189" r="2.6" fill="#FFFFFF"/>
+    <circle cx="185" cy="210.5" r="2.2" fill="#FFFFFF"/>
+    <circle cx="211" cy="210.5" r="2.2" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Éclats dispersés, comme les strass posés autour d'un décor -->
+  <g fill="#FFFFFF" opacity=".92">
+    <path d="m316 104 3.4 8.6 8.6 3.4-8.6 3.4-3.4 8.6-3.4-8.6-8.6-3.4 8.6-3.4Z"/>
+    <path d="m88 268 2.6 6.6 6.6 2.6-6.6 2.6-2.6 6.6-2.6-6.6-6.6-2.6 6.6-2.6Z"/>
+    <path d="m104 118 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/>
+    <path d="m300 290 2.2 5.6 5.6 2.2-5.6 2.2-2.2 5.6-2.2-5.6-5.6-2.2 5.6-2.2Z"/>
+  </g>
+</svg>
