@@ -23,7 +23,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
-        /* ANIMATIONS LUXE */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(35px); }
             to { opacity: 1; transform: translateY(0); }
@@ -33,20 +32,7 @@
         .delay-2 { animation-delay: 0.25s; }
         .delay-3 { animation-delay: 0.4s; }
 
-        /* HEADER MOBILE FLUIDE SANS COUPURE */
-        header { 
-            position: relative; 
-            width: 100%; 
-            background: rgba(247, 245, 242, 0.98); 
-            border-bottom: 1px solid var(--border); 
-            z-index: 1000; 
-            padding: 12px 4%; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
-        }
-
+        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
         .brand-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
         .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
@@ -66,105 +52,36 @@
             section { padding-top: 130px !important; }
         }
 
-        /* SECTION TARIFS */
-        section { 
-            padding: 40px 5% 50px; 
-            max-width: 900px; 
-            margin: 0 auto; 
-        }
+        section { padding: 40px 5% 50px; max-width: 900px; margin: 0 auto; }
 
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-header p { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-weight: 500; }
         .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; line-height: 1.1; }
         .section-header h1 em { font-style: italic; color: var(--accent-gold); font-weight: 300; }
 
-        /* CARTES DE PRIX INTERACTIVES */
-        .tarifs-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
+        .tarifs-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
         @media (min-width: 768px) { .tarifs-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; } }
 
-        .tarif-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 35px 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-            transition: var(--transition);
-        }
-        .tarif-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15);
-        }
+        .tarif-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 35px 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: var(--transition); }
+        .tarif-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
 
-        .tarif-card h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--accent-dark);
-            margin-bottom: 25px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 400;
-        }
+        .tarif-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--accent-dark); margin-bottom: 25px; text-align: center; text-transform: uppercase; letter-spacing: 3px; font-weight: 400; }
 
         .price-list { list-style: none; }
-        .price-list li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px dashed var(--border);
-            transition: var(--transition);
-        }
+        .price-list li { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px dashed var(--border); transition: var(--transition); }
         .price-list li:last-child { border-bottom: none; }
-        
-        .price-list li:hover {
-            padding-left: 8px;
-            padding-right: 8px;
-            background: rgba(197, 168, 128, 0.03);
-            border-radius: 6px;
-        }
+        .price-list li:hover { padding-left: 8px; padding-right: 8px; background: rgba(197, 168, 128, 0.03); border-radius: 6px; }
 
-        .prestation-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-main);
-            transition: var(--transition);
-        }
+        .prestation-name { font-size: 0.9rem; font-weight: 500; color: var(--text-main); transition: var(--transition); }
         .price-list li:hover .prestation-name { color: var(--accent-gold); }
 
-        .prestation-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--accent-dark);
-            transition: var(--transition);
-        }
+        .prestation-price { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--accent-dark); transition: var(--transition); }
         .price-list li:hover .prestation-price { color: var(--accent-gold); }
 
-        /* BOUTON RÉSERVATION CENTRÉ */
         .cta-container { text-align: center; margin-top: 50px; }
-        .btn-primary { 
-            display: inline-block; 
-            background-color: var(--accent-dark); 
-            color: #FFF; 
-            text-decoration: none; 
-            padding: 16px 36px; 
-            border-radius: 30px; 
-            font-size: 0.8rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            transition: var(--transition); 
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        .btn-primary { display: inline-block; background-color: var(--accent-dark); color: #FFF; text-decoration: none; padding: 16px 36px; border-radius: 30px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .btn-primary:hover { background-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
 
-        /* FOOTER */
         footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
         footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
         footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
@@ -197,64 +114,32 @@
         </div>
 
         <div class="tarifs-grid">
-            
-            <!-- CARTE 1 : POSE SIMPLE -->
             <div class="tarif-card animate-up delay-1">
                 <h2>Pose Simple</h2>
                 <ul class="price-list">
-                    <li>
-                        <span class="prestation-name">Renfort</span>
-                        <span class="prestation-price">35€</span>
-                    </li>
-                    <li>
-                        <span class="prestation-name">Gainage</span>
-                        <span class="prestation-price">45€</span>
-                    </li>
-                    <li>
-                        <span class="prestation-name">Pose VSP</span>
-                        <span class="prestation-price">30€</span>
-                    </li>
+                    <li><span class="prestation-name">Renfort</span><span class="prestation-price">35€</span></li>
+                    <li><span class="prestation-name">Gainage</span><span class="prestation-price">45€</span></li>
+                    <li><span class="prestation-name">Pose VSP</span><span class="prestation-price">30€</span></li>
                 </ul>
             </div>
 
-            <!-- CARTE 2 : MAINS -->
             <div class="tarif-card animate-up delay-2">
                 <h2>Mains</h2>
                 <ul class="price-list">
-                    <li>
-                        <span class="prestation-name">GEL X</span>
-                        <span class="prestation-price">40€</span>
-                    </li>
-                    <li>
-                        <span class="prestation-name">Demi-capsules Gel</span>
-                        <span class="prestation-price">50€</span>
-                    </li>
-                    <li>
-                        <span class="prestation-name">Popit</span>
-                        <span class="prestation-price">50€</span>
-                    </li>
-                    <li>
-                        <span class="prestation-name">Remplissage</span>
-                        <span class="prestation-price">+5€</span>
-                    </li>
+                    <li><span class="prestation-name">GEL X</span><span class="prestation-price">40€</span></li>
+                    <li><span class="prestation-name">Demi-capsules Gel</span><span class="prestation-price">50€</span></li>
+                    <li><span class="prestation-name">Popit</span><span class="prestation-price">50€</span></li>
+                    <li><span class="prestation-name">Remplissage</span><span class="prestation-price">+5€</span></li>
                 </ul>
             </div>
 
-            <!-- CARTE 3 : DÉPOSE -->
             <div class="tarif-card animate-up delay-3" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
                 <h2>Dépose</h2>
                 <ul class="price-list">
-                    <li>
-                        <span class="prestation-name">Dépose simple</span>
-                        <span class="prestation-price">15€</span>
-                    </li>
-                    <li>
-                        <span class="prestation-name">Dépose + pose</span>
-                        <span class="prestation-price">-5€</span>
-                    </li>
+                    <li><span class="prestation-name">Dépose simple</span><span class="prestation-price">15€</span></li>
+                    <li><span class="prestation-name">Dépose + pose</span><span class="prestation-price">-5€</span></li>
                 </ul>
             </div>
-
         </div>
 
         <div class="cta-container animate-up delay-3">
