@@ -111,13 +111,21 @@ a { color: var(--framboise); }
   gap: 1rem; padding-block: .8rem;
 }
 
-.marque {
-  display: flex; align-items: center; gap: .55rem;
-  text-decoration: none; color: var(--texte);
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 700; font-size: 1.1rem; letter-spacing: -.03em;
+/* Le nom de la marque a son propre caractère : un serif à fort contraste,
+   espacé, qui tranche avec le grotesque des titres. */
+.nom-marque {
+  font-family: Italiana, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
-.marque img { width: 28px; height: 28px; }
+
+.marque {
+  display: flex; align-items: center; gap: .6rem;
+  text-decoration: none; color: var(--texte);
+  font-size: 1.15rem; line-height: 1;
+}
+.marque img { width: 30px; height: 30px; }
 
 .bascule {
   display: inline-flex; align-items: center; gap: .5rem;
