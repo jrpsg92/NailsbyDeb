@@ -6,7 +6,7 @@
     <title>Nails by Deb — Salon Privé & Haute Manucure (95)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #F7F5F2;
@@ -16,114 +16,164 @@
             --text-main: #2C2A29;
             --text-muted: #8C857E;
             --border: #E6E0D8;
-            --radius: 12px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius: 16px;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
-        /* ÉCRAN D'ACCUEIL D'ENTRÉE (SPLASH SCREEN LUXE) */
+        /* ÉCRAN D'ACCUEIL INTERACTIF (SPLASH SCREEN BEIGE LUXE) */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: var(--accent-dark);
-            color: #FAF8F5;
+            background: radial-gradient(circle at center, #FAF7F2 0%, #EFE8DF 100%);
+            color: var(--text-main);
             z-index: 99999;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+            padding: 24px;
+            perspective: 1000px;
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.9s ease;
         }
 
         .splash-content {
-            max-width: 500px;
-            animation: splashFadeIn 1s ease-out;
+            max-width: 520px;
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out;
+            position: relative;
         }
 
-        @keyframes splashFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* CONTENEUR LOGO INTERACTIF 3D */
+        .splash-logo-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
         .splash-logo {
-            width: 90px;
-            height: 90px;
+            width: 95px;
+            height: 95px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent-gold);
-            margin-bottom: 20px;
-            box-shadow: 0 0 25px rgba(197, 168, 128, 0.3);
+            box-shadow: 0 12px 35px rgba(197, 168, 128, 0.35);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+
+        .splash-logo-container:hover .splash-logo {
+            transform: scale(1.06);
+        }
+
+        /* ANNEAUX DORÉS ANIMÉS INTERACTIFS */
+        .splash-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px dashed var(--accent-gold);
+            animation: spinRing 20s linear infinite;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        .splash-ring-outer {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 1px solid rgba(197, 168, 128, 0.3);
+            animation: spinRingReverse 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes spinRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spinRingReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
         }
 
         .splash-subtitle {
             color: var(--accent-gold);
-            font-size: 0.75rem;
-            letter-spacing: 4px;
+            font-size: 0.72rem;
+            letter-spacing: 4.5px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: block;
             font-weight: 500;
         }
 
         .splash-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-size: clamp(2.3rem, 6.5vw, 3.6rem);
             font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 30px;
+            line-height: 1.15;
+            color: var(--accent-dark);
+            margin-bottom: 35px;
         }
 
         .splash-title em {
             font-style: italic;
             color: var(--accent-gold);
+            font-weight: 300;
         }
 
         .btn-splash {
             display: inline-block;
-            background-color: transparent;
+            background-color: var(--accent-dark);
             color: #FAF8F5;
-            border: 1px solid var(--accent-gold);
-            padding: 16px 38px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            letter-spacing: 2.5px;
+            border: 1px solid var(--accent-dark);
+            padding: 18px 46px;
+            border-radius: 40px;
+            font-size: 0.78rem;
+            letter-spacing: 3.5px;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
+            box-shadow: 0 12px 30px rgba(20, 19, 18, 0.15);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-splash:hover {
             background-color: var(--accent-gold);
+            border-color: var(--accent-gold);
             color: var(--accent-dark);
-            transform: scale(1.04);
-            box-shadow: 0 0 20px rgba(197, 168, 128, 0.4);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(197, 168, 128, 0.4);
         }
 
-        /* STYLES DU SITE */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(35px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.25s; }
-        .delay-3 { animation-delay: 0.4s; }
-
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
-        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        /* HEADER LUXE UNIFIÉ SUR UNE SEULE LIGNE */
+        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 4%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--accent-dark); white-space: nowrap; }
+        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); flex-shrink: 0; }
+        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--accent-dark); white-space: nowrap; }
+        
         nav { width: 100%; display: flex; justify-content: center; }
         nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
         nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
         .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
 
@@ -131,10 +181,17 @@
             header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
             nav ul { gap: 16px; flex-wrap: nowrap; }
             nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .brand-logo img { width: 48px; height: 48px; }
-            .brand-logo span { font-size: 1.7rem; }
+            .brand-logo img { width: 44px; height: 44px; }
+            .brand-logo span { font-size: 0.95rem; letter-spacing: 4px; }
             .hero { padding-top: 140px !important; }
         }
+
+        /* ACCUEIL HERO */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.25s; }
+        .delay-3 { animation-delay: 0.4s; }
 
         .hero { padding: 40px 5% 50px; text-align: center; max-width: 900px; margin: 0 auto; }
         .hero-badge { display: inline-block; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 5px 14px; border-radius: 30px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; background: rgba(197, 168, 128, 0.03); font-weight: 500; }
@@ -173,21 +230,25 @@
 </head>
 <body>
 
-    <!-- ÉCRAN DE BIENVENUE D'ENTRÉE -->
+    <!-- ÉCRAN D'ACCUEIL INTERACTIF (BEIGE LUXE & EFFET 3D) -->
     <div id="splash-screen">
-        <div class="splash-content">
-            <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
-            <span class="splash-subtitle">Studio Privé — Val-d'Oise (95)</span>
-            <h1 class="splash-title">Bienvenue dans l'univers <em>Nails by Deb</em></h1>
+        <div class="splash-content" id="splashCard">
+            <div class="splash-logo-container" onclick="enterStudio()">
+                <div class="splash-ring-outer"></div>
+                <div class="splash-ring"></div>
+                <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
+            </div>
+            <span class="splash-subtitle">Studio Privé · Val-d'Oise (95)</span>
+            <h1 class="splash-title">Bienvenue dans l'univers<br><em>Nails by Deb</em></h1>
             <button class="btn-splash" onclick="enterStudio()">Entrer dans le studio</button>
         </div>
     </div>
 
-    <!-- SITE COMPLET -->
+    <!-- HEADER ET CONTENU DU SITE -->
     <header>
         <a href="index.html" class="brand-logo">
             <img src="logo.png" alt="Nails by Deb Logo">
-            <span>Nails by Deb</span>
+            <span>NAILS BY DEB</span>
         </a>
         <nav>
             <ul>
@@ -256,10 +317,30 @@
     </footer>
 
     <script>
+        const splashScreen = document.getElementById('splash-screen');
+        const splashCard = document.getElementById('splashCard');
+
+        // EFFET INTERACTIF 3D AU MOUVEMENT DU DOIGT OU DE LA SOURIS
+        splashScreen.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            splashCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        splashScreen.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                const touch = e.touches[0];
+                const xAxis = (window.innerWidth / 2 - touch.pageX) / 20;
+                const yAxis = (window.innerHeight / 2 - touch.pageY) / 20;
+                splashCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+
+        // TRANSITION D'OUVERTURE LUXE
         function enterStudio() {
-            const splash = document.getElementById('splash-screen');
-            splash.style.opacity = '0';
-            splash.style.visibility = 'hidden';
+            splashScreen.style.opacity = '0';
+            splashScreen.style.transform = 'scale(1.08)';
+            splashScreen.style.visibility = 'hidden';
         }
     </script>
 </body>
