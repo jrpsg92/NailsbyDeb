@@ -28,6 +28,40 @@
     });
   }
 
+  /* --- Mot d'accueil en relief ------------------------------------------ */
+  var scene = document.querySelector("[data-scene]");
+  var relief = document.querySelector("[data-relief]");
+  var sobre = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (scene && relief && !sobre.matches) {
+    var AMPLITUDE = 11; // degrés max : assez pour se voir, pas pour gêner la lecture
+
+    function incliner(e) {
+      var r = scene.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      relief.style.transform =
+        "rotateX(" + (-y * AMPLITUDE) + "deg) rotateY(" + (x * AMPLITUDE) + "deg)";
+    }
+
+    function relacher() {
+      scene.dataset.actif = "false";
+      relief.style.transform = "";
+    }
+
+    scene.addEventListener("pointerenter", function () { scene.dataset.actif = "true"; });
+    scene.addEventListener("pointermove", incliner);
+    scene.addEventListener("pointerleave", relacher);
+    scene.addEventListener("pointercancel", relacher);
+
+    // Au doigt : on suit le glissement, puis on revient au repos.
+    scene.addEventListener("pointerdown", function (e) {
+      scene.dataset.actif = "true";
+      incliner(e);
+    });
+    scene.addEventListener("pointerup", relacher);
+  }
+
   /* --- Visionneuse de galerie ------------------------------------------- */
   var vues = Array.prototype.slice.call(document.querySelectorAll("[data-piece]"));
   var boite = document.querySelector("[data-visionneuse]");

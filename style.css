@@ -209,19 +209,45 @@ a { color: var(--framboise); }
   50%      { transform: translateY(-14px) rotate(1.5deg); }
 }
 
-/* Logotype : lettrage plein, dégradé framboise et reflet de gel. */
-.logotype {
+/* Mot d'accueil en relief : la profondeur vient d'un empilement de copies
+   décalées, et le bloc s'incline vers le pointeur ou le doigt. */
+.scene { perspective: 900px; width: 100%; }
+
+.bienvenue {
+  margin: 0;
   font-family: "Bricolage Grotesque", system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: -.045em;
-  line-height: .92;
-  font-size: clamp(2.8rem, 1.2rem + 7.6vw, 6rem);
-  margin: 0;
-  background: linear-gradient(168deg, #E27FA6 0%, var(--framboise) 46%, #731C41 100%);
-  -webkit-background-clip: text; background-clip: text;
-  color: transparent;
-  text-wrap: balance;
+  letter-spacing: -.05em;
+  line-height: .9;
+  font-size: clamp(3.2rem, 1rem + 11vw, 8rem);
+  color: #C84C80;
+  transform-style: preserve-3d;
+  transition: transform .4s var(--courbe);
+  will-change: transform;
+  text-shadow:
+     1px  1px 0 #BE4376,  2px  2px 0 #B43D6E,
+     3px  3px 0 #AA3766,  4px  4px 0 #A0325E,
+     5px  5px 0 #962D56,  6px  6px 0 #8C284E,
+     7px  7px 0 #822346,  8px  8px 0 #781E3E,
+     9px  9px 0 #6E1A36, 10px 10px 0 #641636,
+    12px 18px 26px rgb(94 23 52 / .3);
 }
+/* Pendant le survol, la réaction suit le doigt sans inertie. */
+.scene[data-actif="true"] .bienvenue { transition: transform .08s linear; }
+
+.bienvenue__marque {
+  display: block;
+  margin-top: .75rem;
+  font-family: Figtree, system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.05rem, .95rem + .5vw, 1.35rem);
+  letter-spacing: 0;
+  color: var(--texte-doux);
+  text-shadow: none;
+}
+
+.accroche--accueil .scene { margin-bottom: 1.5rem; }
+.accroche--accueil .accroche__texte > p { margin-top: 0; }
 
 .accroche--accueil .accroche__texte { padding: 0; }
 .accroche--accueil p { margin-inline: auto; }
