@@ -1,111 +1,122 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservation — Nails by Deb</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-main: #F7F5F2;
-            --bg-card: #FFFFFF;
-            --accent-dark: #141312;
-            --accent-gold: #C5A880;
-            --text-main: #2C2A29;
-            --text-muted: #8C857E;
-            --border: #E6E0D8;
-            --radius: 12px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réserver — Nails by Deb</title>
+<meta name="description" content="Réservez votre créneau chez Nails by Deb : prestation souhaitée, disponibilités et inspiration par message. Studio privé dans le Val-d'Oise.">
+<link rel="canonical" href="https://jrpsg92.github.io/NailsbyDeb/booking.html">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+<meta property="og:type" content="website">
+<meta property="og:title" content="Réserver — Nails by Deb">
+<meta property="og:description" content="Prenez rendez-vous au studio privé dans le Val-d'Oise.">
+<meta property="og:image" content="https://jrpsg92.github.io/NailsbyDeb/img/og-image.jpg">
+<meta property="og:url" content="https://jrpsg92.github.io/NailsbyDeb/booking.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(35px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.1s; }
+<link rel="icon" href="img/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#F2ECE3">
 
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
-        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-        
-        nav { width: 100%; display: flex; justify-content: center; }
-        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
-        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
-        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
-
-        @media (min-width: 768px) {
-            header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
-            nav ul { gap: 16px; flex-wrap: nowrap; }
-            nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .brand-logo img { width: 48px; height: 48px; }
-            .brand-logo span { font-size: 1.7rem; }
-            section { padding-top: 130px !important; }
-        }
-
-        section { padding: 40px 5% 50px; max-width: 800px; margin: 0 auto; text-align: center; }
-        .section-header { margin-bottom: 35px; }
-        .section-header p { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-weight: 500; }
-        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; line-height: 1.1; }
-
-        .booking-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: var(--transition); }
-        .booking-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
-
-        .booking-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--accent-dark); margin-bottom: 15px; font-weight: 500; }
-        .booking-card p { color: var(--text-muted); font-size: 0.88rem; font-weight: 300; margin-bottom: 30px; line-height: 1.6; }
-
-        .btn-primary { display: inline-block; background-color: var(--accent-dark); color: #FFF; text-decoration: none; padding: 16px 36px; border-radius: 30px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .btn-primary:hover { background-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
-
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
-        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
-        .social-link:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: #141312; }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html" class="brand-logo">
-            <img src="logo.png" alt="Nails by Deb Logo">
-            <span>Nails by Deb</span>
+<a class="saut-contenu" href="#contenu">Aller au contenu</a>
+
+<header class="entete">
+  <div class="enveloppe entete__rangee">
+    <a class="marque" href="index.html">
+      <img src="img/logo-mark.svg" alt="" width="28" height="28">
+      <span>Nails by Deb</span>
+    </a>
+    <button class="bascule" data-bascule aria-expanded="false" aria-controls="menu" hidden>
+      <span class="bascule__traits" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="nav" id="menu" data-nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a class="reserver" href="booking.html" aria-current="page">Réserver</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="section">
+    <div class="enveloppe">
+      <div class="section__chapeau">
+        <h1>Réserver</h1>
+        <p>Les rendez-vous se prennent par message sur Instagram.
+           Je réponds avec un créneau et le tarif exact de votre pose.</p>
+      </div>
+
+      <div class="consignes">
+        <div>
+          <h3>Ce qu'il faut m'indiquer</h3>
+          <p>La prestation souhaitée, deux ou trois disponibilités, et une photo
+             d'inspiration si vous en avez une. Avec ça je peux vous répondre
+             en un seul message.</p>
+        </div>
+        <div>
+          <h3>Ce que je vous réponds</h3>
+          <p>Le créneau, la durée à prévoir, le tarif exact selon la complexité
+             du décor, et le montant de l'acompte qui confirme la réservation.</p>
+        </div>
+        <div>
+          <h3>Délai</h3>
+          <p>Comptez quelques heures, parfois une journée en période chargée.
+             Si vous n'avez pas de réponse sous 48 h, relancez-moi.</p>
+        </div>
+        <div>
+          <h3>Avant de venir</h3>
+          <p>Jetez un œil aux <a href="rules.html">consignes du studio</a> :
+             ponctualité, acompte et préparation des mains y sont détaillés.</p>
+        </div>
+      </div>
+
+      <div class="appel" style="margin-top:3.5rem">
+        <h2>Écrivez-moi</h2>
+        <p>Message direct sur Instagram, c'est le plus rapide.</p>
+        <!-- Étape suivante conseillée : remplacer ce lien par un outil de
+             réservation en ligne (Planity, Treatwell…) ou un formulaire,
+             et ajouter ici un numéro ou un lien WhatsApp si la cliente
+             souhaite un second canal. -->
+        <a class="bouton" href="https://instagram.com/nails_bydeb" rel="noopener">
+          Réserver via Instagram
         </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="realisations.html">Galerie</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="rules.html">Consignes</a></li>
-                <li><a href="booking.html" class="btn-nav active">Réserver</a></li>
-            </ul>
-        </nav>
-    </header>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <section>
-        <div class="section-header animate-up">
-            <p>Prise de Rendez-vous</p>
-            <h1>Réserver votre Soin</h1>
-        </div>
+<footer class="pied">
+  <div class="enveloppe">
+    <div class="pied__rangee">
+      <div>
+        <strong>Nails by Deb</strong>
+        <p>Studio privé sur rendez-vous — Val-d'Oise (95)</p>
+        <p><a href="https://instagram.com/nails_bydeb" rel="noopener">Instagram @nails_bydeb</a></p>
+      </div>
+      <ul>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a href="booking.html">Réserver</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </div>
+    <p class="pied__mention">© 2026 Nails by Deb</p>
+  </div>
+</footer>
 
-        <div class="booking-card animate-up delay-1">
-            <h2>Prise de rendez-vous en ligne ou par DM</h2>
-            <p>Pour réserver votre créneau, veuillez m'envoyer un message directement sur Instagram en indiquant la prestation souhaitée et vos disponibilités.</p>
-            <a href="https://instagram.com/nails_bydeb" target="_blank" class="btn-primary">Réserver via Instagram</a>
-        </div>
-    </section>
-
-    <footer>
-        <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
-        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
-    </footer>
+<script src="script.js" defer></script>
 </body>
 </html>

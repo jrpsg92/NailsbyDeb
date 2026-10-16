@@ -1,130 +1,118 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos — Nails by Deb</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-main: #F7F5F2;
-            --bg-card: #FFFFFF;
-            --accent-dark: #141312;
-            --accent-gold: #C5A880;
-            --text-main: #2C2A29;
-            --text-muted: #8C857E;
-            --border: #E6E0D8;
-            --radius: 16px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À propos de Deborah — Nails by Deb</title>
+<meta name="description" content="Deborah, prothésiste ongulaire diplômée, reçoit en studio privé dans le Val-d'Oise. Diagnostic de l'ongle, hygiène stricte et nail art sur-mesure.">
+<link rel="canonical" href="https://jrpsg92.github.io/NailsbyDeb/about.html">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+<meta property="og:type" content="profile">
+<meta property="og:title" content="À propos de Deborah — Nails by Deb">
+<meta property="og:description" content="Prothésiste ongulaire diplômée, studio privé dans le Val-d'Oise.">
+<meta property="og:image" content="https://jrpsg92.github.io/NailsbyDeb/img/og-image.jpg">
+<meta property="og:url" content="https://jrpsg92.github.io/NailsbyDeb/about.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
 
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.25s; }
+<link rel="icon" href="img/logo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#F2ECE3">
 
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 4%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--accent-dark); white-space: nowrap; }
-        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); flex-shrink: 0; }
-        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--accent-dark); white-space: nowrap; }
-        
-        nav { width: 100%; display: flex; justify-content: center; }
-        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
-        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
-        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
-
-        @media (min-width: 768px) {
-            header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
-            nav ul { gap: 16px; flex-wrap: nowrap; }
-            nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .brand-logo img { width: 44px; height: 44px; }
-            .brand-logo span { font-size: 0.95rem; letter-spacing: 4px; }
-            section { padding-top: 130px !important; }
-        }
-
-        section { padding: 40px 5% 60px; max-width: 1100px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 35px; }
-        .section-header p { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-weight: 500; }
-        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; line-height: 1.1; }
-        .section-header h1 em { font-style: italic; color: var(--accent-gold); font-weight: 300; }
-
-        .about-layout { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; }
-        @media (min-width: 850px) { .about-layout { grid-template-columns: 1fr 1.2fr; gap: 50px; } }
-
-        .about-img-box { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.04); aspect-ratio: 4/5; max-width: 380px; margin: 0 auto; width: 100%; background: #FFF; position: relative; }
-        .about-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
-        .about-img-box:hover img { transform: scale(1.05); }
-
-        .about-card { background: var(--bg-card); border: 1px solid var(--border); padding: 32px 28px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: var(--transition); }
-        .about-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
-        @media (min-width: 600px) { .about-card { padding: 42px 36px; } }
-        
-        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 16px; color: var(--accent-dark); line-height: 1.25; font-weight: 500; }
-        .about-card p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.88rem; font-weight: 300; line-height: 1.7; }
-        
-        .about-highlights { list-style: none; margin-top: 22px; border-top: 1px solid var(--border); padding-top: 18px; }
-        .about-highlights li { position: relative; padding-left: 22px; margin-bottom: 12px; font-size: 0.85rem; font-weight: 400; color: var(--text-main); transition: var(--transition); }
-        .about-highlights li:hover { color: var(--accent-gold); transform: translateX(4px); }
-        .about-highlights li::before { content: "✦"; position: absolute; left: 0; color: var(--accent-gold); font-size: 0.75rem; top: 1px; }
-
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 50px; border-top: 1px solid var(--border); }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
-        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
-        .social-link:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: #141312; }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <a href="index.html" class="brand-logo">
-            <img src="logo.png" alt="Nails by Deb Logo">
-            <span>NAILS BY DEB</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html" class="active">À propos</a></li>
-                <li><a href="realisations.html">Réalisations</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="rules.html">Consignes</a></li>
-                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
-            </ul>
-        </nav>
-    </header>
+<a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
-    <section>
-        <div class="section-header animate-up">
-            <p>Savoir-faire & Passion</p>
-            <h1>À propos de <em>Deborah</em></h1>
-        </div>
-        <div class="about-layout">
-            <div class="about-img-box animate-up delay-1">
-                <img src="deborah.jpg" alt="Deborah — Prothésiste Ongulaire" onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600&auto=format&fit=crop';">
-            </div>
-            <div class="about-card animate-up delay-2">
-                <h3>Une Nail Artist certifiée & passionnée</h3>
-                <p>Diplômée en prothésie ongulaire à l'âge de 23 ans, j'ai imaginé mon studio privé dans le Val-d'Oise comme un écrin intime et élégant réservé à la beauté des mains.</p>
-                <p>Mon engagement au quotidien : allier minutie, esthétique contemporaine et respect absolu de la santé de vos ongles grâce à des produits d'une qualité d'exception.</p>
-                <ul class="about-highlights">
-                    <li>Diplômée & Certifiée en prothésie ongulaire</li>
-                    <li>Diagnostic personnalisé & conseils sur-mesure</li>
-                    <li>Protocole d'hygiène & stérilisation stricte</li>
-                    <li>Finitions haute couture & tenues longue durée</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<header class="entete">
+  <div class="enveloppe entete__rangee">
+    <a class="marque" href="index.html">
+      <img src="img/logo-mark.svg" alt="" width="28" height="28">
+      <span>Nails by Deb</span>
+    </a>
+    <button class="bascule" data-bascule aria-expanded="false" aria-controls="menu" hidden>
+      <span class="bascule__traits" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="nav" id="menu" data-nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="about.html" aria-current="page">À propos</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a class="reserver" href="booking.html">Réserver</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-    <footer>
-        <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
-        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
-    </footer>
+<main id="contenu">
+  <section class="section">
+    <div class="enveloppe">
+      <div class="section__chapeau">
+        <h1>Deborah</h1>
+        <p>Prothésiste ongulaire diplômée, installée en studio privé dans le Val-d'Oise.</p>
+      </div>
+
+      <div class="duo">
+        <img src="img/deborah-600.webp"
+             srcset="img/deborah-600.webp 600w, img/deborah-1000.webp 1000w"
+             sizes="(min-width: 52rem) 40vw, 100vw"
+             alt="Deborah au travail dans son studio" width="1221" height="2201">
+        <div>
+          <h2>Le studio</h2>
+          <p>Diplômée en prothésie ongulaire à 23 ans, j'ai aménagé mon studio
+             privé pour recevoir une cliente à la fois. Pas de salle d'attente,
+             pas de rotation : votre créneau vous appartient.</p>
+          <p>Mon travail repose sur trois exigences : la santé de l'ongle d'abord,
+             des finitions propres ensuite, et une pose qui vous ressemble enfin.
+             Je préfère refuser une longueur ou un décor plutôt que d'abîmer
+             un ongle fragilisé.</p>
+          <ul class="liste-nue">
+            <li>Diplômée et certifiée en prothésie ongulaire</li>
+            <li>Diagnostic de l'ongle et conseils adaptés à chaque main</li>
+            <li>Protocole d'hygiène et stérilisation du matériel entre chaque cliente</li>
+            <li>Produits professionnels, tenue longue durée</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sable">
+    <div class="enveloppe">
+      <div class="appel">
+        <h2>On en parle&nbsp;?</h2>
+        <p>Décrivez-moi ce que vous avez en tête, je vous dis ce qui est réalisable.</p>
+        <a class="bouton" href="booking.html">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="enveloppe">
+    <div class="pied__rangee">
+      <div>
+        <strong>Nails by Deb</strong>
+        <p>Studio privé sur rendez-vous — Val-d'Oise (95)</p>
+        <p><a href="https://instagram.com/nails_bydeb" rel="noopener">Instagram @nails_bydeb</a></p>
+      </div>
+      <ul>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="rules.html">Consignes</a></li>
+        <li><a href="booking.html">Réserver</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </div>
+    <p class="pied__mention">© 2026 Nails by Deb</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>
