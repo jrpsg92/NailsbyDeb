@@ -6,7 +6,7 @@
     <title>À propos — Nails by Deb</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #F7F5F2;
@@ -16,29 +16,26 @@
             --text-main: #2C2A29;
             --text-muted: #8C857E;
             --border: #E6E0D8;
-            --radius: 12px;
+            --radius: 16px;
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(35px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
         .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.25s; }
 
-        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
-        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 4%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--accent-dark); white-space: nowrap; }
+        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); flex-shrink: 0; }
+        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--accent-dark); white-space: nowrap; }
         
         nav { width: 100%; display: flex; justify-content: center; }
         nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
         nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
         .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
 
@@ -46,15 +43,16 @@
             header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
             nav ul { gap: 16px; flex-wrap: nowrap; }
             nav a { font-size: 0.8rem; padding: 8px 14px; }
-            .brand-logo img { width: 48px; height: 48px; }
-            .brand-logo span { font-size: 1.7rem; }
+            .brand-logo img { width: 44px; height: 44px; }
+            .brand-logo span { font-size: 0.95rem; letter-spacing: 4px; }
             section { padding-top: 130px !important; }
         }
 
-        section { padding: 40px 5% 50px; max-width: 1100px; margin: 0 auto; }
+        section { padding: 40px 5% 60px; max-width: 1100px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 35px; }
-        .section-header p { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 8px; font-weight: 500; }
-        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem, 5vw, 3.5rem); color: var(--accent-dark); font-weight: 400; }
+        .section-header p { color: var(--accent-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-weight: 500; }
+        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; line-height: 1.1; }
+        .section-header h1 em { font-style: italic; color: var(--accent-gold); font-weight: 300; }
 
         .about-layout { display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center; }
         @media (min-width: 850px) { .about-layout { grid-template-columns: 1fr 1.2fr; gap: 50px; } }
@@ -63,19 +61,19 @@
         .about-img-box img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s ease; }
         .about-img-box:hover img { transform: scale(1.05); }
 
-        .about-card { background: var(--bg-card); border: 1px solid var(--border); padding: 30px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: var(--transition); }
-        .about-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
-        @media (min-width: 600px) { .about-card { padding: 40px; } }
+        .about-card { background: var(--bg-card); border: 1px solid var(--border); padding: 32px 28px; border-radius: var(--radius); box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition: var(--transition); }
+        .about-card:hover { border-color: var(--accent-gold); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
+        @media (min-width: 600px) { .about-card { padding: 42px 36px; } }
         
-        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; margin-bottom: 16px; color: var(--accent-dark); line-height: 1.25; font-weight: 500; }
-        .about-card p { color: var(--text-muted); margin-bottom: 15px; font-size: 0.88rem; font-weight: 300; }
+        .about-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 16px; color: var(--accent-dark); line-height: 1.25; font-weight: 500; }
+        .about-card p { color: var(--text-muted); margin-bottom: 16px; font-size: 0.88rem; font-weight: 300; line-height: 1.7; }
         
-        .about-highlights { list-style: none; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 16px; }
+        .about-highlights { list-style: none; margin-top: 22px; border-top: 1px solid var(--border); padding-top: 18px; }
         .about-highlights li { position: relative; padding-left: 22px; margin-bottom: 12px; font-size: 0.85rem; font-weight: 400; color: var(--text-main); transition: var(--transition); }
-        .about-highlights li:hover { color: var(--accent-gold); transform: translateX(5px); }
+        .about-highlights li:hover { color: var(--accent-gold); transform: translateX(4px); }
         .about-highlights li::before { content: "✦"; position: absolute; left: 0; color: var(--accent-gold); font-size: 0.75rem; top: 1px; }
 
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
+        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 50px; border-top: 1px solid var(--border); }
         footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
         footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
         .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
@@ -86,13 +84,13 @@
     <header>
         <a href="index.html" class="brand-logo">
             <img src="logo.png" alt="Nails by Deb Logo">
-            <span>Nails by Deb</span>
+            <span>NAILS BY DEB</span>
         </a>
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="about.html" class="active">À propos</a></li>
-                <li><a href="realisations.html">Galerie</a></li>
+                <li><a href="realisations.html">Réalisations</a></li>
                 <li><a href="tarifs.html">Tarifs</a></li>
                 <li><a href="rules.html">Consignes</a></li>
                 <li><a href="booking.html" class="btn-nav">Réserver</a></li>
@@ -102,22 +100,22 @@
 
     <section>
         <div class="section-header animate-up">
-            <p>Mon Profil</p>
-            <h1>À propos de moi</h1>
+            <p>Savoir-faire & Passion</p>
+            <h1>À propos de <em>Deborah</em></h1>
         </div>
         <div class="about-layout">
             <div class="about-img-box animate-up delay-1">
-                <img src="deborah.jpg" alt="Deborah — Prothésiste Ongulaire">
+                <img src="deborah.jpg" alt="Deborah — Prothésiste Ongulaire" onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=600&auto=format&fit=crop';">
             </div>
             <div class="about-card animate-up delay-2">
-                <h3>Une Nail Artist diplômée & passionnée</h3>
-                <p>À 23 ans, j'ai fait de ma passion un métier d'art et d'exigence en obtenant mon diplôme de prothésiste ongulaire. Je vous reçois dans mon salon privé dans le Val-d'Oise, conçu comme un écrin intime et raffiné.</p>
-                <p>Mon engagement : sublimer vos mains tout en préservant la santé naturelle de vos ongles grâce à des protocoles rigoureux et des produits d'une qualité irréprochable.</p>
+                <h3>Une Nail Artist certifiée & passionnée</h3>
+                <p>Diplômée en prothésie ongulaire à l'âge de 23 ans, j'ai imaginé mon studio privé dans le Val-d'Oise comme un écrin intime et élégant réservé à la beauté des mains.</p>
+                <p>Mon engagement au quotidien : allier minutie, esthétique contemporaine et respect absolu de la santé de vos ongles grâce à des produits d'une qualité d'exception.</p>
                 <ul class="about-highlights">
                     <li>Diplômée & Certifiée en prothésie ongulaire</li>
-                    <li>Conseils sur-mesure & diagnostic personnalisé</li>
-                    <li>Hygiène stricte & stérilisation rigoureuse</li>
-                    <li>Créations signatures et finitions haute couture</li>
+                    <li>Diagnostic personnalisé & conseils sur-mesure</li>
+                    <li>Protocole d'hygiène & stérilisation stricte</li>
+                    <li>Finitions haute couture & tenues longue durée</li>
                 </ul>
             </div>
         </div>
