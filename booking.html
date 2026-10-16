@@ -3,55 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réserver — Nails by Deb</title>
+    <title>Réservation — Nails by Deb</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-main: #FAF8F5; --bg-card: #FFFFFF; --accent-dark: #1C1B1A; --accent-nude: #D8C4B6; --accent-gold: #C5A880; --text-main: #2C2A29; --text-muted: #7A7571; --border: #E8E2DC; --radius: 16px; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-
-        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(250, 248, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 10px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
-        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; }
-
-        nav { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        nav ul { display: flex; list-style: none; gap: 10px; justify-content: center; align-items: center; white-space: nowrap; padding-bottom: 4px; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 6px 10px; border-radius: 20px; }
-        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.1); }
-        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 6px 14px !important; }
-
-        @media (min-width: 768px) {
-            header { flex-direction: row; justify-content: space-between; padding: 14px 5%; }
-            .brand-logo img { width: 48px; height: 48px; }
-            .brand-logo span { font-size: 1.8rem; }
-            nav { width: auto; overflow: visible; }
-            nav ul { gap: 18px; padding-bottom: 0; }
-            nav a { font-size: 0.85rem; padding: 8px 12px; }
+        :root {
+            --bg-main: #F7F5F2;
+            --bg-card: #FFFFFF;
+            --accent-dark: #141312;
+            --accent-gold: #C5A880;
+            --text-main: #2C2A29;
+            --text-muted: #8C857E;
+            --border: #E6E0D8;
+            --radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        section { padding: 130px 4% 50px; max-width: 700px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 30px; }
-        .section-header p { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
-        .booking-form-wrapper { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
-        @media (min-width: 600px) { .booking-form-wrapper { padding: 35px; } }
+        /* ANIMATIONS LUXE */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.25s; }
 
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; margin-bottom: 6px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-dark); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px; font-family: inherit; font-size: 16px; background-color: #FAF8F5; }
+        /* HEADER MOBILE FLUIDE */
+        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
+        .brand-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
+        .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
         
-        .btn-submit { width: 100%; background-color: var(--accent-dark); color: #FFF; border: none; padding: 15px; border-radius: 40px; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
-        .btn-submit:hover { background-color: var(--accent-gold); }
-        .confirmation-box { display: none; background-color: #F0F7F4; border: 1px solid #C3E6CB; color: #155724; padding: 18px; border-radius: 10px; margin-top: 18px; text-align: center; font-size: 0.9rem; }
+        nav { width: 100%; display: flex; justify-content: center; }
+        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
+        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
+        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
+        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
 
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 45px 5% 25px; text-align: center; margin-top: 40px; }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 8px; }
-        footer p { color: var(--accent-nude); font-size: 0.85rem; margin-bottom: 20px; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid var(--accent-gold); padding: 10px 20px; border-radius: 30px; font-size: 0.8rem; }
+        @media (min-width: 768px) {
+            header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
+            nav ul { gap: 16px; flex-wrap: nowrap; }
+            nav a { font-size: 0.8rem; padding: 8px 14px; }
+            .brand-logo img { width: 48px; height: 48px; }
+            .brand-logo span { font-size: 1.7rem; }
+            section { padding-top: 130px !important; }
+        }
+
+        /* SECTION RÉSERVATION */
+        section { padding: 40px 5% 50px; max-width: 800px; margin: 0 auto; text-align: center; }
+        
+        .section-header { margin-bottom: 35px; }
+        .section-header p { color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px; font-weight: 500; }
+        .section-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--accent-dark); font-weight: 400; line-height: 1.1; }
+
+        .booking-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+        .booking-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15);
+        }
+
+        .booking-card h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--accent-dark);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .booking-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-primary { 
+            display: inline-block; 
+            background-color: var(--accent-dark); 
+            color: #FFF; 
+            text-decoration: none; 
+            padding: 16px 36px; 
+            border-radius: 30px; 
+            font-size: 0.8rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: var(--transition); 
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover { background-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
+
+        /* FOOTER */
+        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
+        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
+        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
+        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
+        .social-link:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: #141312; }
     </style>
 </head>
 <body>
@@ -64,7 +124,7 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="about.html">À propos</a></li>
-                <li><a href="realisations.html">Réalisations</a></li>
+                <li><a href="realisations.html">Galerie</a></li>
                 <li><a href="tarifs.html">Tarifs</a></li>
                 <li><a href="rules.html">Consignes</a></li>
                 <li><a href="booking.html" class="btn-nav active">Réserver</a></li>
@@ -73,67 +133,22 @@
     </header>
 
     <section>
-        <div class="section-header">
-            <p>Réservation</p>
-            <h1>Demande de Rendez-vous</h1>
+        <div class="section-header animate-up">
+            <p>Prise de Rendez-vous</p>
+            <h1>Réserver votre Soin</h1>
         </div>
-        <div class="booking-form-wrapper">
-            <form id="bookingForm" onsubmit="handleBooking(event)">
-                <div class="form-group">
-                    <label for="fullName">Nom & Prénom</label>
-                    <input type="text" id="fullName" required placeholder="Ex: Sarah Dupont">
-                </div>
-                <div class="form-group">
-                    <label for="instaUser">Votre Compte Instagram (@)</label>
-                    <input type="text" id="instaUser" required placeholder="Ex: @sarah_dpt">
-                </div>
-                <div class="form-group">
-                    <label for="serviceSelect">Prestation Choisie</label>
-                    <select id="serviceSelect" required>
-                        <option value="">-- Sélectionnez un soin --</option>
-                        <option value="Gainage / Rubber Base (35€)">Gainage / Rubber Base (35 €)</option>
-                        <option value="Pose Américaine (45€)">Pose Américaine / Gel-X (45 €)</option>
-                        <option value="Remplissage (40€)">Remplissage / Renfort (40 €)</option>
-                        <option value="Semi-Permanent (30€)">Semi-Permanent (30 €)</option>
-                        <option value="Dépose Complète (15€)">Dépose Complète (15 €)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="preferredDate">Date souhaitée</label>
-                    <input type="date" id="preferredDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="preferredTime">Créneau Horaire</label>
-                    <select id="preferredTime" required>
-                        <option value="Matin (10h00 - 12h00)">Matin (10h00 - 12h00)</option>
-                        <option value="Après-midi (14h00 - 17h00)">Après-midi (14h00 - 17h00)</option>
-                        <option value="Fin de journée (17h30 - 19h30)">Fin de journée (17h30 - 19h30)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="notes">Inspirations Nail Art / Précisions</label>
-                    <textarea id="notes" rows="3" placeholder="Description de vos envies (French, strass...)"></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Envoyer ma demande</button>
-                <div id="confirmationBox" class="confirmation-box">
-                    ✨ Merci pour votre demande ! Deborah vous recontactera sur Instagram sous peu pour vous confirmer la date et vous transmettre l'adresse.
-                </div>
-            </form>
+
+        <div class="booking-card animate-up delay-1">
+            <h2>Prise de rendez-vous en ligne ou par DM</h2>
+            <p>Pour réserver votre créneau, veuillez m'envoyer un message directement sur Instagram en indiquant la prestation souhaitée et vos disponibilités.</p>
+            <a href="https://instagram.com/nails_bydeb" target="_blank" class="btn-primary">Réserver via Instagram</a>
         </div>
     </section>
 
     <footer>
         <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Ongulaire dans le Val-d'Oise (95)</p>
+        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
         <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
     </footer>
-
-    <script>
-        function handleBooking(e) {
-            e.preventDefault();
-            document.getElementById('confirmationBox').style.display = 'block';
-            document.getElementById('bookingForm').reset();
-        }
-    </script>
 </body>
 </html>
