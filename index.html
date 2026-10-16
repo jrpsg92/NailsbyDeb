@@ -23,6 +23,91 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
+        /* ÉCRAN D'ACCUEIL D'ENTRÉE (SPLASH SCREEN LUXE) */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--accent-dark);
+            color: #FAF8F5;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+        }
+
+        .splash-content {
+            max-width: 500px;
+            animation: splashFadeIn 1s ease-out;
+        }
+
+        @keyframes splashFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .splash-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(197, 168, 128, 0.3);
+        }
+
+        .splash-subtitle {
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .splash-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .splash-title em {
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        .btn-splash {
+            display: inline-block;
+            background-color: transparent;
+            color: #FAF8F5;
+            border: 1px solid var(--accent-gold);
+            padding: 16px 38px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .btn-splash:hover {
+            background-color: var(--accent-gold);
+            color: var(--accent-dark);
+            transform: scale(1.04);
+            box-shadow: 0 0 20px rgba(197, 168, 128, 0.4);
+        }
+
+        /* STYLES DU SITE */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(35px); }
             to { opacity: 1; transform: translateY(0); }
@@ -87,6 +172,18 @@
     </style>
 </head>
 <body>
+
+    <!-- ÉCRAN DE BIENVENUE D'ENTRÉE -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
+            <span class="splash-subtitle">Studio Privé — Val-d'Oise (95)</span>
+            <h1 class="splash-title">Bienvenue dans l'univers <em>Nails by Deb</em></h1>
+            <button class="btn-splash" onclick="enterStudio()">Entrer dans le studio</button>
+        </div>
+    </div>
+
+    <!-- SITE COMPLET -->
     <header>
         <a href="index.html" class="brand-logo">
             <img src="logo.png" alt="Nails by Deb Logo">
@@ -96,7 +193,7 @@
             <ul>
                 <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="about.html">À propos</a></li>
-                <li><a href="realisations.html">Galerie</a></li>
+                <li><a href="realisations.html">Réalisations</a></li>
                 <li><a href="tarifs.html">Tarifs</a></li>
                 <li><a href="rules.html">Consignes</a></li>
                 <li><a href="booking.html" class="btn-nav">Réserver</a></li>
@@ -139,7 +236,7 @@
                     <h3>Le Portfolio</h3>
                     <p>Lignes pures et finitions irréprochables. Explorez les créations exclusives du studio.</p>
                 </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Voir la galerie →</span>
+                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Voir les réalisations →</span>
             </a>
             <a href="tarifs.html" class="card-preview animate-up delay-3">
                 <div>
@@ -157,5 +254,13 @@
         <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
         <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
     </footer>
+
+    <script>
+        function enterStudio() {
+            const splash = document.getElementById('splash-screen');
+            splash.style.opacity = '0';
+            splash.style.visibility = 'hidden';
+        }
+    </script>
 </body>
 </html>
