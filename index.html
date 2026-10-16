@@ -11,9 +11,9 @@
         :root {
             --bg-main: #F7F5F2;
             --bg-card: #FFFFFF;
-            --accent-dark: #141312;
-            --accent-gold: #C5A880;
-            --text-main: #2C2A29;
+            --color-brand: #141312; 
+            --color-gold: #C5A880;  
+            --color-gold-light: #E8DCB8;
             --text-muted: #8C857E;
             --border: #E6E0D8;
             --radius: 16px;
@@ -21,161 +21,214 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
+        body { background-color: var(--bg-main); color: var(--color-brand); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
-        /* ÉCRAN D'ACCUEIL INTERACTIF (SPLASH SCREEN BEIGE LUXE) */
+        /* =========================================================
+           ÉCRAN DE BIENVENUE D'EXCEPTION (SPLASH SCREEN HAUTE COUTURE)
+           ========================================================= */
         #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: radial-gradient(circle at center, #FAF7F2 0%, #EFE8DF 100%);
-            color: var(--text-main);
+            background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F5EFE6 55%, #E9E1D5 100%);
+            color: var(--color-brand);
             z-index: 99999;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 24px;
-            perspective: 1000px;
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.9s ease;
+            padding: 30px;
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s ease;
         }
 
         .splash-content {
-            max-width: 520px;
-            transform-style: preserve-3d;
-            transition: transform 0.15s ease-out;
-            position: relative;
+            max-width: 580px;
+            width: 100%;
         }
 
-        /* CONTENEUR LOGO INTERACTIF 3D */
-        .splash-logo-container {
+        /* LOGO & ANNEAUX DORÉS SANS 3D MAIS AVEC AURA LUMINEUSE */
+        .splash-logo-wrapper {
             position: relative;
             width: 150px;
             height: 150px;
-            margin: 0 auto 30px;
+            margin: 0 auto 35px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
         }
 
+        /* Halo lumineux d'arrière-plan */
+        .splash-glow {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(197, 168, 128, 0.35) 0%, rgba(197, 168, 128, 0) 70%);
+            animation: pulseGlow 3.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            100% { transform: scale(1.35); opacity: 0.9; }
+        }
+
         .splash-logo {
-            width: 95px;
-            height: 95px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--accent-gold);
-            box-shadow: 0 12px 35px rgba(197, 168, 128, 0.35);
+            border: 1.5px solid var(--color-gold);
+            box-shadow: 0 12px 35px rgba(197, 168, 128, 0.28);
             position: relative;
+            z-index: 3;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .splash-logo-wrapper:hover .splash-logo {
+            transform: scale(1.05);
+        }
+
+        /* Double anneau filigrane en rotation douce */
+        .splash-ring-1 {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 1px dashed var(--color-gold);
+            animation: rotateClockwise 25s linear infinite;
+            opacity: 0.75;
             z-index: 2;
-            transition: transform 0.4s ease;
         }
 
-        .splash-logo-container:hover .splash-logo {
-            transform: scale(1.06);
-        }
-
-        /* ANNEAUX DORÉS ANIMÉS INTERACTIFS */
-        .splash-ring {
+        .splash-ring-2 {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 150px;
-            height: 150px;
+            width: 158px;
+            height: 158px;
             border-radius: 50%;
-            border: 1px dashed var(--accent-gold);
-            animation: spinRing 20s linear infinite;
-            pointer-events: none;
-            opacity: 0.85;
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            animation: rotateCounter 35s linear infinite;
+            z-index: 1;
         }
 
-        .splash-ring-outer {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            border: 1px solid rgba(197, 168, 128, 0.3);
-            animation: spinRingReverse 30s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes spinRing {
+        @keyframes rotateClockwise {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
-        @keyframes spinRingReverse {
+        @keyframes rotateCounter {
             from { transform: rotate(360deg); }
             to { transform: rotate(0deg); }
         }
 
-        .splash-subtitle {
-            color: var(--accent-gold);
+        /* TYPOGRAPHIE ET TEXTES */
+        .splash-tag {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-gold);
             font-size: 0.72rem;
-            letter-spacing: 4.5px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             display: block;
             font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 0.9s 0.2s forwards ease-out;
         }
 
         .splash-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.3rem, 6.5vw, 3.6rem);
+            font-size: clamp(2.4rem, 6.5vw, 3.8rem);
             font-weight: 400;
             line-height: 1.15;
-            color: var(--accent-dark);
-            margin-bottom: 35px;
+            color: var(--color-brand);
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeInUp 0.9s 0.4s forwards ease-out;
         }
 
         .splash-title em {
             font-style: italic;
-            color: var(--accent-gold);
+            color: var(--color-gold);
             font-weight: 300;
         }
 
+        .splash-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 38px;
+            opacity: 0;
+            animation: fadeInUp 0.9s 0.5s forwards ease-out;
+        }
+
+        /* BOUTON D'ENTRÉE DU LUXE AVEC EFFET SHIMMER EN CONTINU */
         .btn-splash {
+            position: relative;
             display: inline-block;
-            background-color: var(--accent-dark);
+            background-color: var(--color-brand);
             color: #FAF8F5;
-            border: 1px solid var(--accent-dark);
-            padding: 18px 46px;
+            border: 1px solid var(--color-brand);
+            padding: 18px 48px;
             border-radius: 40px;
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             letter-spacing: 3.5px;
             text-transform: uppercase;
             cursor: pointer;
             transition: var(--transition);
-            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            box-shadow: 0 12px 30px rgba(20, 19, 18, 0.15);
-            position: relative;
             overflow: hidden;
+            box-shadow: 0 12px 30px rgba(20, 19, 18, 0.12);
+            opacity: 0;
+            animation: fadeInUp 0.9s 0.7s forwards ease-out;
+        }
+
+        /* Ligne de reflet lumineux à travers le bouton */
+        .btn-splash::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            animation: shimmer 3.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
         }
 
         .btn-splash:hover {
-            background-color: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: var(--accent-dark);
-            transform: translateY(-4px) scale(1.02);
+            background-color: var(--color-gold);
+            border-color: var(--color-gold);
+            color: var(--color-brand);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 35px rgba(197, 168, 128, 0.4);
         }
 
-        /* HEADER LUXE UNIFIÉ SUR UNE SEULE LIGNE */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =========================================================
+           HEADER HARMONISÉ (STRICTEMENT SUR UNE SEULE LIGNE)
+           ========================================================= */
         header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 14px 4%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--accent-dark); white-space: nowrap; }
-        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); flex-shrink: 0; }
-        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--accent-dark); white-space: nowrap; }
-        
+        .brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--color-brand); white-space: nowrap; }
+        .brand-logo img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid var(--color-gold); flex-shrink: 0; }
+        .brand-logo span { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 600; color: var(--color-brand); white-space: nowrap; }
+
         nav { width: 100%; display: flex; justify-content: center; }
-        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
-        nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
-        nav a:hover, nav a.active { color: var(--accent-gold); background: rgba(197, 168, 128, 0.08); }
-        .btn-nav { background-color: var(--accent-dark) !important; color: #FFF !important; padding: 5px 12px !important; }
+        nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; }
+        nav a { text-decoration: none; color: var(--color-brand); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; padding: 6px 10px; border-radius: 15px; transition: var(--transition); }
+        nav a:hover, nav a.active { color: var(--color-gold); background: rgba(197, 168, 128, 0.08); }
+        .btn-nav { background-color: var(--color-brand) !important; color: #FFF !important; padding: 6px 14px !important; }
 
         @media (min-width: 768px) {
             header { position: fixed; top: 0; left: 0; flex-direction: row; justify-content: space-between; padding: 16px 6%; backdrop-filter: blur(12px); }
@@ -186,162 +239,16 @@
             .hero { padding-top: 140px !important; }
         }
 
-        /* ACCUEIL HERO */
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(35px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.25s; }
-        .delay-3 { animation-delay: 0.4s; }
-
+        /* =========================================================
+           CONTENU PRINCIPAL DU SITE
+           ========================================================= */
         .hero { padding: 40px 5% 50px; text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero-badge { display: inline-block; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 5px 14px; border-radius: 30px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; background: rgba(197, 168, 128, 0.03); font-weight: 500; }
-        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem, 7vw, 4.2rem); line-height: 1.15; margin-bottom: 15px; color: var(--accent-dark); font-weight: 500; }
-        .hero h1 em { font-style: italic; color: var(--accent-gold); }
+        .hero-badge { display: inline-block; border: 1px solid var(--color-gold); color: var(--color-gold); padding: 5px 14px; border-radius: 30px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 7vw, 4.2rem); line-height: 1.15; margin-bottom: 15px; color: var(--color-brand); font-weight: 500; }
+        .hero h1 em { font-style: italic; color: var(--color-gold); }
         .hero p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; font-weight: 300; }
-        .hero-cta-group { display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; }
+
+        .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; }
         @media(min-width: 500px) { .hero-cta-group { flex-direction: row; } }
-        .btn-primary { display: inline-block; background-color: var(--accent-dark); color: #FFF; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); width: 100%; max-width: 260px; font-weight: 500; }
-        .btn-primary:hover { background-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
-        .btn-secondary { display: inline-block; background-color: transparent; color: var(--accent-dark); border: 1px solid var(--border); text-decoration: none; padding: 14px 28px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); width: 100%; max-width: 260px; font-weight: 500; }
-        .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(197, 168, 128, 0.05); }
 
-        .marquee-container { width: 100%; overflow: hidden; background-color: var(--accent-dark); color: #FAF8F5; padding: 12px 0; margin: 30px 0 45px; white-space: nowrap; border-top: 1px solid rgba(197, 168, 128, 0.3); border-bottom: 1px solid rgba(197, 168, 128, 0.3); }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 2.5px; text-transform: uppercase; }
-        .marquee-content span { margin: 0 20px; color: var(--accent-gold); }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        .experience-section { padding: 0 5% 50px; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .experience-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--accent-dark); margin-bottom: 10px; font-weight: 400; }
-        .experience-section p.sub { color: var(--text-muted); font-size: 0.84rem; max-width: 500px; margin: 0 auto 30px; font-weight: 300; }
-        .preview-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        @media (min-width: 768px) { .preview-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-        .card-preview { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 25px 20px; text-align: left; text-decoration: none; color: inherit; transition: var(--transition); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
-        .card-preview:hover { border-color: var(--accent-gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
-        .card-preview span.num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--accent-gold); display: block; margin-bottom: 10px; }
-        .card-preview h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; margin-bottom: 8px; color: var(--accent-dark); font-weight: 500; }
-        .card-preview p { font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
-
-        footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
-        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
-        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
-        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
-        .social-link:hover { background: var(--accent-gold); border-color: var(--accent-gold); color: #141312; }
-    </style>
-</head>
-<body>
-
-    <!-- ÉCRAN D'ACCUEIL INTERACTIF (BEIGE LUXE & EFFET 3D) -->
-    <div id="splash-screen">
-        <div class="splash-content" id="splashCard">
-            <div class="splash-logo-container" onclick="enterStudio()">
-                <div class="splash-ring-outer"></div>
-                <div class="splash-ring"></div>
-                <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
-            </div>
-            <span class="splash-subtitle">Studio Privé · Val-d'Oise (95)</span>
-            <h1 class="splash-title">Bienvenue dans l'univers<br><em>Nails by Deb</em></h1>
-            <button class="btn-splash" onclick="enterStudio()">Entrer dans le studio</button>
-        </div>
-    </div>
-
-    <!-- HEADER ET CONTENU DU SITE -->
-    <header>
-        <a href="index.html" class="brand-logo">
-            <img src="logo.png" alt="Nails by Deb Logo">
-            <span>NAILS BY DEB</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="about.html">À propos</a></li>
-                <li><a href="realisations.html">Réalisations</a></li>
-                <li><a href="tarifs.html">Tarifs</a></li>
-                <li><a href="rules.html">Consignes</a></li>
-                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero animate-up">
-        <span class="hero-badge">Salon Privé · Val-d'Oise (95)</span>
-        <h1>L'art de la haute manucure <em>sur-mesure</em></h1>
-        <p>Bienvenue dans l'univers exclusif de Deborah. Un sanctuaire de beauté dédié à l'élégance de vos mains.</p>
-        <div class="hero-cta-group">
-            <a href="booking.html" class="btn-primary">Réserver mon soin</a>
-            <a href="tarifs.html" class="btn-secondary">Découvrir la carte</a>
-        </div>
-    </section>
-
-    <div class="marquee-container animate-up delay-1">
-        <div class="marquee-content">
-            HAUTE MANUCURE <span>✦</span> GAINAGE RUBBER <span>✦</span> POSE AMÉRICAINE GEL-X <span>✦</span> EXCELLENCE & RAFFINEMENT <span>✦</span> VAL-D'OISE (95) <span>✦</span>
-        </div>
-    </div>
-
-    <div class="experience-section">
-        <h2 class="animate-up delay-1">L'Expérience Nails by Deb</h2>
-        <p class="sub animate-up delay-1">Une exigence absolue portée sur la santé de vos ongles et la perfection des finitions.</p>
-        
-        <div class="preview-grid">
-            <a href="about.html" class="card-preview animate-up delay-1">
-                <div>
-                    <span class="num">01</span>
-                    <h3>Savoir-faire</h3>
-                    <p>Diplômée et passionnée, Deborah sublime vos mains avec des techniques de pointe.</p>
-                </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Découvrir →</span>
-            </a>
-            <a href="realisations.html" class="card-preview animate-up delay-2">
-                <div>
-                    <span class="num">02</span>
-                    <h3>Le Portfolio</h3>
-                    <p>Lignes pures et finitions irréprochables. Explorez les créations exclusives du studio.</p>
-                </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Voir les réalisations →</span>
-            </a>
-            <a href="tarifs.html" class="card-preview animate-up delay-3">
-                <div>
-                    <span class="num">03</span>
-                    <h3>Prestations</h3>
-                    <p>Gainage, Gel-X ou Nail Art sur-mesure pour des mains d'exception au quotidien.</p>
-                </div>
-                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Consulter la carte →</span>
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        <h3>Nails by Deb</h3>
-        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
-        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
-    </footer>
-
-    <script>
-        const splashScreen = document.getElementById('splash-screen');
-        const splashCard = document.getElementById('splashCard');
-
-        // EFFET INTERACTIF 3D AU MOUVEMENT DU DOIGT OU DE LA SOURIS
-        splashScreen.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            splashCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-
-        splashScreen.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                const touch = e.touches[0];
-                const xAxis = (window.innerWidth / 2 - touch.pageX) / 20;
-                const yAxis = (window.innerHeight / 2 - touch.pageY) / 20;
-                splashCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            }
-        });
-
-        // TRANSITION D'OUVERTURE LUXE
-        function enterStudio() {
-            splashScreen.style.opacity = '0';
-            splashScreen.style.transform = 'scale(1.08)';
-            splashScreen.style.visibility = 'hidden';
-        }
-    </script>
-</body>
-</html>
+        .btn-primary { display: inline-block; background-color: var(--color-brand); color: #FFF; text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 1
