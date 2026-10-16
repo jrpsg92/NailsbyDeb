@@ -21,26 +21,21 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; }
+        body { background-color: var(--bg-main); color: var(--text-main); font-family: 'Montserrat', sans-serif; line-height: 1.7; -webkit-tap-highlight-color: transparent; overflow-x: hidden; }
 
-        /* HEADER LUXE FLUIDE SANS COUPURE */
-        header { 
-            position: relative; 
-            width: 100%; 
-            background: rgba(247, 245, 242, 0.98); 
-            border-bottom: 1px solid var(--border); 
-            z-index: 1000; 
-            padding: 14px 4%; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        .animate-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.25s; }
+        .delay-3 { animation-delay: 0.4s; }
 
+        header { position: relative; width: 100%; background: rgba(247, 245, 242, 0.98); border-bottom: 1px solid var(--border); z-index: 1000; padding: 12px 4%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent-dark); }
-        .brand-logo img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
+        .brand-logo img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-gold); }
         .brand-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
-
         nav { width: 100%; display: flex; justify-content: center; }
         nav ul { display: flex; list-style: none; gap: 4px; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2px 0; }
         nav a { text-decoration: none; color: var(--text-main); font-size: 0.65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; padding: 5px 8px; border-radius: 15px; transition: var(--transition); }
@@ -53,109 +48,37 @@
             nav a { font-size: 0.8rem; padding: 8px 14px; }
             .brand-logo img { width: 48px; height: 48px; }
             .brand-logo span { font-size: 1.7rem; }
-            .hero { padding-top: 130px !important; }
+            .hero { padding-top: 140px !important; }
         }
 
-        /* HERO HAUT DE GAMME */
-        .hero { 
-            padding: 35px 5% 45px; 
-            text-align: center; 
-            max-width: 900px; 
-            margin: 0 auto; 
-        }
-
-        .hero-badge { 
-            display: inline-block; 
-            border: 1px solid var(--accent-gold); 
-            color: var(--accent-gold); 
-            padding: 5px 14px; 
-            border-radius: 30px; 
-            font-size: 0.65rem; 
-            letter-spacing: 2.5px; 
-            text-transform: uppercase; 
-            margin-bottom: 18px; 
-            background: rgba(197, 168, 128, 0.03);
-            font-weight: 500;
-        }
-
-        .hero h1 { 
-            font-family: 'Cormorant Garamond', serif; 
-            font-size: clamp(2.2rem, 7vw, 4.2rem); 
-            line-height: 1.15; 
-            margin-bottom: 15px; 
-            color: var(--accent-dark); 
-            font-weight: 500;
-        }
-
+        .hero { padding: 40px 5% 50px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-badge { display: inline-block; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 5px 14px; border-radius: 30px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; background: rgba(197, 168, 128, 0.03); font-weight: 500; }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.1rem, 7vw, 4.2rem); line-height: 1.15; margin-bottom: 15px; color: var(--accent-dark); font-weight: 500; }
         .hero h1 em { font-style: italic; color: var(--accent-gold); }
-
-        .hero p { 
-            font-size: 0.88rem; 
-            color: var(--text-muted); 
-            max-width: 600px; 
-            margin: 0 auto 30px; 
-            font-weight: 300; 
-        }
-
+        .hero p { font-size: 0.9rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; font-weight: 300; }
         .hero-cta-group { display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; }
         @media(min-width: 500px) { .hero-cta-group { flex-direction: row; } }
-
-        .btn-primary { 
-            display: inline-block; 
-            background-color: var(--accent-dark); 
-            color: #FFF; 
-            text-decoration: none; 
-            padding: 13px 28px; 
-            border-radius: 30px; 
-            font-size: 0.73rem; 
-            letter-spacing: 1.8px; 
-            text-transform: uppercase; 
-            transition: var(--transition); 
-            width: 100%; 
-            max-width: 260px; 
-            font-weight: 500;
-        }
-        .btn-primary:hover { background-color: var(--accent-gold); transform: translateY(-2px); }
-
-        .btn-secondary { 
-            display: inline-block; 
-            background-color: transparent; 
-            color: var(--accent-dark); 
-            border: 1px solid var(--border);
-            text-decoration: none; 
-            padding: 13px 28px; 
-            border-radius: 30px; 
-            font-size: 0.73rem; 
-            letter-spacing: 1.8px; 
-            text-transform: uppercase; 
-            transition: var(--transition); 
-            width: 100%; 
-            max-width: 260px; 
-            font-weight: 500;
-        }
+        .btn-primary { display: inline-block; background-color: var(--accent-dark); color: #FFF; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); width: 100%; max-width: 260px; font-weight: 500; }
+        .btn-primary:hover { background-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
+        .btn-secondary { display: inline-block; background-color: transparent; color: var(--accent-dark); border: 1px solid var(--border); text-decoration: none; padding: 14px 28px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); width: 100%; max-width: 260px; font-weight: 500; }
         .btn-secondary:hover { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(197, 168, 128, 0.05); }
 
-        /* BANDEAU DÉFILANT LUXE */
         .marquee-container { width: 100%; overflow: hidden; background-color: var(--accent-dark); color: #FAF8F5; padding: 12px 0; margin: 30px 0 45px; white-space: nowrap; border-top: 1px solid rgba(197, 168, 128, 0.3); border-bottom: 1px solid rgba(197, 168, 128, 0.3); }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; }
+        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 2.5px; text-transform: uppercase; }
         .marquee-content span { margin: 0 20px; color: var(--accent-gold); }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* SECTION EXPÉRIENCE */
         .experience-section { padding: 0 5% 50px; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .experience-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--accent-dark); margin-bottom: 8px; font-weight: 400; }
+        .experience-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--accent-dark); margin-bottom: 10px; font-weight: 400; }
         .experience-section p.sub { color: var(--text-muted); font-size: 0.84rem; max-width: 500px; margin: 0 auto 30px; font-weight: 300; }
-
         .preview-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
         @media (min-width: 768px) { .preview-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-
         .card-preview { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 25px 20px; text-align: left; text-decoration: none; color: inherit; transition: var(--transition); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
-        .card-preview:hover { border-color: var(--accent-gold); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(197, 168, 128, 0.08); }
+        .card-preview:hover { border-color: var(--accent-gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
         .card-preview span.num { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--accent-gold); display: block; margin-bottom: 10px; }
         .card-preview h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; margin-bottom: 8px; color: var(--accent-dark); font-weight: 500; }
         .card-preview p { font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
 
-        /* FOOTER */
         footer { background-color: var(--accent-dark); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 40px; border-top: 1px solid var(--border); }
         footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; letter-spacing: 1px; font-weight: 400; }
         footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
@@ -181,7 +104,7 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero animate-up">
         <span class="hero-badge">Salon Privé · Val-d'Oise (95)</span>
         <h1>L'art de la haute manucure <em>sur-mesure</em></h1>
         <p>Bienvenue dans l'univers exclusif de Deborah. Un sanctuaire de beauté dédié à l'élégance de vos mains.</p>
@@ -191,18 +114,18 @@
         </div>
     </section>
 
-    <div class="marquee-container">
+    <div class="marquee-container animate-up delay-1">
         <div class="marquee-content">
             HAUTE MANUCURE <span>✦</span> GAINAGE RUBBER <span>✦</span> POSE AMÉRICAINE GEL-X <span>✦</span> EXCELLENCE & RAFFINEMENT <span>✦</span> VAL-D'OISE (95) <span>✦</span>
         </div>
     </div>
 
     <div class="experience-section">
-        <h2>L'Expérience Nails by Deb</h2>
-        <p class="sub">Une exigence absolue portée sur la santé de vos ongles et la perfection des finitions.</p>
+        <h2 class="animate-up delay-1">L'Expérience Nails by Deb</h2>
+        <p class="sub animate-up delay-1">Une exigence absolue portée sur la santé de vos ongles et la perfection des finitions.</p>
         
         <div class="preview-grid">
-            <a href="about.html" class="card-preview">
+            <a href="about.html" class="card-preview animate-up delay-1">
                 <div>
                     <span class="num">01</span>
                     <h3>Savoir-faire</h3>
@@ -210,7 +133,7 @@
                 </div>
                 <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Découvrir →</span>
             </a>
-            <a href="realisations.html" class="card-preview">
+            <a href="realisations.html" class="card-preview animate-up delay-2">
                 <div>
                     <span class="num">02</span>
                     <h3>Le Portfolio</h3>
@@ -218,7 +141,7 @@
                 </div>
                 <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-gold); margin-top:15px; display:block;">Voir la galerie →</span>
             </a>
-            <a href="tarifs.html" class="card-preview">
+            <a href="tarifs.html" class="card-preview animate-up delay-3">
                 <div>
                     <span class="num">03</span>
                     <h3>Prestations</h3>
