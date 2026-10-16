@@ -251,4 +251,132 @@
         .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; }
         @media(min-width: 500px) { .hero-cta-group { flex-direction: row; } }
 
-        .btn-primary { display: inline-block; background-color: var(--color-brand); color: #FFF; text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 1
+        .btn-primary { display: inline-block; background-color: var(--color-brand); color: #FFF; text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 100%; max-width: 250px; }
+        .btn-primary:hover { background-color: var(--color-gold); color: var(--color-brand); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(197, 168, 128, 0.3); }
+
+        .btn-secondary { display: inline-block; background-color: transparent; color: var(--color-brand); border: 1px solid var(--border); text-decoration: none; padding: 15px 32px; border-radius: 30px; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: var(--transition); font-weight: 500; width: 100%; max-width: 250px; }
+        .btn-secondary:hover { border-color: var(--color-gold); color: var(--color-gold); background: rgba(197, 168, 128, 0.05); }
+
+        .marquee-container { width: 100%; overflow: hidden; background-color: var(--color-brand); color: #FAF8F5; padding: 12px 0; margin: 30px 0 45px; white-space: nowrap; border-top: 1px solid rgba(197, 168, 128, 0.3); border-bottom: 1px solid rgba(197, 168, 128, 0.3); }
+        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 2.5px; text-transform: uppercase; }
+        .marquee-content span { margin: 0 20px; color: var(--color-gold); }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .experience-section { padding: 0 5% 50px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .experience-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--color-brand); margin-bottom: 10px; font-weight: 400; }
+        .experience-section p.sub { color: var(--text-muted); font-size: 0.84rem; max-width: 500px; margin: 0 auto 30px; font-weight: 300; }
+        .preview-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+        @media (min-width: 768px) { .preview-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
+        .card-preview { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 22px; text-align: left; text-decoration: none; color: inherit; transition: var(--transition); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
+        .card-preview:hover { border-color: var(--color-gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 128, 0.15); }
+        .card-preview span.num { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--color-gold); display: block; margin-bottom: 10px; }
+        .card-preview h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; margin-bottom: 8px; color: var(--color-brand); font-weight: 500; }
+        .card-preview p { font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.5; }
+
+        footer { background-color: var(--color-brand); color: #FAF8F5; padding: 40px 5% 25px; text-align: center; margin-top: 50px; border-top: 1px solid var(--border); }
+        footer h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; font-weight: 400; }
+        footer p { color: #A8A29E; font-size: 0.78rem; margin-bottom: 20px; font-weight: 300; }
+        .social-link { display: inline-block; color: #FFF; text-decoration: none; border: 1px solid rgba(197, 168, 128, 0.5); padding: 8px 20px; border-radius: 30px; font-size: 0.7rem; letter-spacing: 1.8px; text-transform: uppercase; transition: var(--transition); }
+        .social-link:hover { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-brand); }
+    </style>
+</head>
+<body>
+
+    <!-- ÉCRAN D'ACCUEIL D'ENTRÉE HAUTE COUTURE -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo-wrapper" onclick="enterStudio()">
+                <div class="splash-glow"></div>
+                <div class="splash-ring-1"></div>
+                <div class="splash-ring-2"></div>
+                <img src="logo.png" alt="Nails by Deb Logo" class="splash-logo">
+            </div>
+            <span class="splash-tag">Studio Privé · Val-d'Oise (95)</span>
+            <h1 class="splash-title">Bienvenue dans l'univers<br><em>Nails by Deb</em></h1>
+            <p class="splash-desc">Haute manucure & soins sur-mesure</p>
+            <button class="btn-splash" onclick="enterStudio()">Entrer dans le studio</button>
+        </div>
+    </div>
+
+    <!-- HEADER ET STRUCTURE DU SITE -->
+    <header>
+        <a href="index.html" class="brand-logo">
+            <img src="logo.png" alt="Nails by Deb Logo">
+            <span>NAILS BY DEB</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="realisations.html">Réalisations</a></li>
+                <li><a href="tarifs.html">Tarifs</a></li>
+                <li><a href="rules.html">Consignes</a></li>
+                <li><a href="booking.html" class="btn-nav">Réserver</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <span class="hero-badge">Salon Privé · Val-d'Oise (95)</span>
+        <h1>L'art de la haute manucure <em>sur-mesure</em></h1>
+        <p>Bienvenue dans l'univers exclusif de Deborah. Un sanctuaire de beauté dédié à l'élégance de vos mains.</p>
+        <div class="hero-cta-group">
+            <a href="booking.html" class="btn-primary">Réserver mon soin</a>
+            <a href="tarifs.html" class="btn-secondary">Découvrir la carte</a>
+        </div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            HAUTE MANUCURE <span>✦</span> GAINAGE RUBBER <span>✦</span> POSE AMÉRICAINE GEL-X <span>✦</span> EXCELLENCE & RAFFINEMENT <span>✦</span> VAL-D'OISE (95) <span>✦</span>
+        </div>
+    </div>
+
+    <div class="experience-section">
+        <h2>L'Expérience Nails by Deb</h2>
+        <p class="sub">Une exigence absolue portée sur la santé de vos ongles et la perfection des finitions.</p>
+        
+        <div class="preview-grid">
+            <a href="about.html" class="card-preview">
+                <div>
+                    <span class="num">01</span>
+                    <h3>Savoir-faire</h3>
+                    <p>Diplômée et passionnée, Deborah sublime vos mains avec des techniques de pointe.</p>
+                </div>
+                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-gold); margin-top:15px; display:block;">Découvrir →</span>
+            </a>
+            <a href="realisations.html" class="card-preview">
+                <div>
+                    <span class="num">02</span>
+                    <h3>Le Portfolio</h3>
+                    <p>Lignes pures et finitions irréprochables. Explorez les créations exclusives du studio.</p>
+                </div>
+                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-gold); margin-top:15px; display:block;">Voir les réalisations →</span>
+            </a>
+            <a href="tarifs.html" class="card-preview">
+                <div>
+                    <span class="num">03</span>
+                    <h3>Prestations</h3>
+                    <p>Gainage, Gel-X ou Nail Art sur-mesure pour des mains d'exception au quotidien.</p>
+                </div>
+                <span style="font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; color:var(--color-gold); margin-top:15px; display:block;">Consulter la carte →</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <h3>Nails by Deb</h3>
+        <p>Deborah — Home Studio Privé dans le Val-d'Oise (95)</p>
+        <a href="https://instagram.com/nails_bydeb" target="_blank" class="social-link">Instagram @nails_bydeb</a>
+    </footer>
+
+    <script>
+        function enterStudio() {
+            const splash = document.getElementById('splash-screen');
+            splash.style.opacity = '0';
+            splash.style.transform = 'scale(1.04)';
+            splash.style.visibility = 'hidden';
+        }
+    </script>
+</body>
+</html>
