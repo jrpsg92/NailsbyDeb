@@ -187,7 +187,47 @@ a { color: var(--framboise); }
 .sur-espresso .bouton--contour { border-color: var(--filet-sombre-actif); color: var(--texte-inverse); }
 .sur-espresso .bouton--contour:hover { background: var(--sable); color: var(--espresso); border-color: var(--sable); }
 
-/* --- Accroche ----------------------------------------------------------- */
+/* --- Accroche d'accueil : bienvenue, sans photo ------------------------- */
+/* L'objet 3D porte la marque ; les photos vivent dans la galerie. */
+.accroche--accueil {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: .25rem; /* le SVG porte déjà sa propre marge interne */
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 6rem);
+  background:
+    radial-gradient(70% 55% at 50% 12%, #FBF6F0 0%, var(--sable) 62%);
+}
+
+.accroche__objet {
+  width: clamp(180px, 42vw, 300px);
+  height: auto;
+  animation: flotter 7s ease-in-out infinite;
+}
+@keyframes flotter {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50%      { transform: translateY(-14px) rotate(1.5deg); }
+}
+
+/* Logotype : lettrage plein, dégradé framboise et reflet de gel. */
+.logotype {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: .92;
+  font-size: clamp(2.8rem, 1.2rem + 7.6vw, 6rem);
+  margin: 0;
+  background: linear-gradient(168deg, #E27FA6 0%, var(--framboise) 46%, #731C41 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  text-wrap: balance;
+}
+
+.accroche--accueil .accroche__texte { padding: 0; }
+.accroche--accueil p { margin-inline: auto; }
+.accroche--accueil .accroche__actions { justify-content: center; }
+
+/* --- Accroche photo (pages intérieures) --------------------------------- */
 .accroche { position: relative; overflow: hidden; }
 
 .accroche__fond {
